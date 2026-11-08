@@ -19,13 +19,13 @@ export default async function CheckoutPage() {
 
   return (
     <div className="container-page py-8 sm:py-12">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-pink">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-deep-rose">
         Almost there
       </p>
       <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">
         Checkout
       </h1>
-      <p className="mt-2 max-w-xl text-sm text-navy/50">
+      <p className="mt-2 max-w-xl text-sm text-ink">
         Confirm your delivery address and place your order. We&apos;ll call you
         to confirm the details.
       </p>

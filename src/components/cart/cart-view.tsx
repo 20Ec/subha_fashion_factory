@@ -28,11 +28,11 @@ export function CartView() {
           {[0, 1, 2].map((index) => (
             <div
               key={index}
-              className="h-28 animate-pulse rounded-2xl border border-navy/5 bg-white"
+              className="h-28 animate-pulse rounded-2xl border border-line bg-white"
             />
           ))}
         </div>
-        <div className="h-64 animate-pulse rounded-2xl border border-navy/5 bg-white" />
+        <div className="h-64 animate-pulse rounded-2xl border border-line bg-white" />
       </div>
     );
   }
@@ -58,7 +58,7 @@ export function CartView() {
         {lines.map((line) => (
           <div
             key={line.id}
-            className="flex gap-3 rounded-2xl border border-navy/5 bg-white p-3 sm:gap-4 sm:p-4"
+            className="flex gap-3 rounded-2xl border border-line bg-white p-3 sm:gap-4 sm:p-4"
           >
             <Link
               href={`/product/${line.slug}`}
@@ -73,7 +73,7 @@ export function CartView() {
                   className="object-cover"
                 />
               ) : (
-                <span className="grid h-full place-items-center text-pink">
+                <span className="grid h-full place-items-center text-deep-rose">
                   <FlowerMark className="h-7 w-7" />
                 </span>
               )}
@@ -88,10 +88,10 @@ export function CartView() {
                   >
                     {line.name}
                   </Link>
-                  <p className="mt-1 text-[11px] capitalize text-navy/45">
+                  <p className="mt-1 text-[11px] capitalize text-ink">
                     {line.pricingType}: {line.label}
                   </p>
-                  <p className="mt-1 text-[11px] text-navy/40">
+                  <p className="mt-1 text-[11px] text-ink">
                     {formatINR(line.price)} each
                   </p>
                 </div>
@@ -102,7 +102,7 @@ export function CartView() {
                     if (result.error) toast.error(result.error);
                     else toast.success("Item removed");
                   }}
-                  className="grid h-8 w-8 shrink-0 place-items-center rounded-full text-navy/35 transition hover:bg-rose-50 hover:text-rose-600"
+                  className="grid h-8 w-8 shrink-0 place-items-center rounded-full text-ink transition hover:bg-rose-50 hover:text-rose-600"
                   aria-label={`Remove ${line.name}`}
                 >
                   <Trash2 className="h-4 w-4" />
@@ -110,7 +110,7 @@ export function CartView() {
               </div>
 
               <div className="mt-auto flex items-end justify-between gap-3 pt-3">
-                <div className="flex items-center rounded-full border border-navy/10">
+                <div className="flex items-center rounded-full border border-line">
                   <button
                     type="button"
                     onClick={async () => {
@@ -121,7 +121,7 @@ export function CartView() {
                       if (result.error) toast.error(result.error);
                     }}
                     disabled={line.quantity <= 1}
-                    className="grid h-8 w-8 place-items-center rounded-full text-navy/60 transition hover:bg-blush disabled:opacity-30"
+                    className="grid h-8 w-8 place-items-center rounded-full text-navy/70 transition hover:bg-blush disabled:opacity-30"
                     aria-label="Decrease quantity"
                   >
                     <Minus className="h-3 w-3" />
@@ -139,7 +139,7 @@ export function CartView() {
                       if (result.error) toast.error(result.error);
                     }}
                     disabled={line.quantity >= 99}
-                    className="grid h-8 w-8 place-items-center rounded-full text-navy/60 transition hover:bg-blush disabled:opacity-30"
+                    className="grid h-8 w-8 place-items-center rounded-full text-navy/70 transition hover:bg-blush disabled:opacity-30"
                     aria-label="Increase quantity"
                   >
                     <Plus className="h-3 w-3" />
@@ -163,17 +163,17 @@ export function CartView() {
         </Link>
       </div>
 
-      <aside className="rounded-2xl border border-navy/5 bg-white p-5 shadow-card lg:sticky lg:top-28">
+      <aside className="rounded-2xl border border-line bg-white p-5 shadow-card lg:sticky lg:top-28">
         <h2 className="text-base font-semibold">Order summary</h2>
 
-        <div className="mt-4 space-y-2.5 border-b border-navy/5 pb-4 text-sm">
-          <div className="flex items-center justify-between text-navy/55">
+        <div className="mt-4 space-y-2.5 border-b border-line pb-4 text-sm">
+          <div className="flex items-center justify-between text-ink">
             <span>Items ({count})</span>
             <span>{formatINR(subtotal)}</span>
           </div>
-          <div className="flex items-center justify-between text-navy/55">
+          <div className="flex items-center justify-between text-ink">
             <span>Delivery</span>
-            <span className="text-[11px] text-navy/40">Confirmed on call</span>
+            <span className="text-[11px] text-ink">Confirmed on call</span>
           </div>
         </div>
 
@@ -182,7 +182,7 @@ export function CartView() {
           <span className="text-xl font-semibold">{formatINR(subtotal)}</span>
         </div>
 
-        <p className="mt-3 rounded-xl bg-blush p-3 text-[11px] leading-relaxed text-navy/50">
+        <p className="mt-3 rounded-xl bg-blush p-3 text-[11px] leading-relaxed text-ink">
           Our team will call you after checkout to confirm your order and the
           final pricing, including delivery.
         </p>
@@ -206,12 +206,12 @@ export function CartView() {
         )}
 
         {!user && (
-          <p className="mt-2 text-center text-[11px] text-navy/40">
+          <p className="mt-2 text-center text-[11px] text-ink">
             Your cart will be saved when you sign in.
           </p>
         )}
 
-        <div className="mt-4 flex items-center justify-center gap-1.5 text-[10px] text-navy/35">
+        <div className="mt-4 flex items-center justify-center gap-1.5 text-[10px] text-ink">
           <ShieldCheck className="h-3.5 w-3.5" />
           Secure account &amp; order history
         </div>

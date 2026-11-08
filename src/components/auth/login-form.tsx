@@ -46,7 +46,7 @@ export function LoginForm({ next }: { next?: string | null }) {
       <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
         Welcome back
       </h1>
-      <p className="mt-1.5 text-sm text-navy/50">
+      <p className="mt-1.5 text-sm text-ink">
         Sign in to view your orders, saved addresses and cart.
       </p>
 
@@ -89,7 +89,7 @@ export function LoginForm({ next }: { next?: string | null }) {
             <button
               type="button"
               onClick={() => setShowPassword((value) => !value)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-navy/35 transition hover:text-navy"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-ink transition hover:text-navy"
               aria-label={showPassword ? "Hide password" : "Show password"}
             >
               {showPassword ? (
@@ -106,7 +106,7 @@ export function LoginForm({ next }: { next?: string | null }) {
         </Button>
       </form>
 
-      <p className="mt-6 text-center text-sm text-navy/50">
+      <p className="mt-6 text-center text-sm text-ink">
         New to Subha?{" "}
         <Link
           href={next ? `/register?next=${encodeURIComponent(next)}` : "/register"}

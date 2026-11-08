@@ -128,13 +128,13 @@ export function CategoryManager({ categories }: { categories: Category[] }) {
     <div>
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-pink">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-deep-rose">
             Catalog
           </p>
           <h1 className="mt-1 text-2xl font-semibold tracking-tight sm:text-3xl">
             Categories
           </h1>
-          <p className="mt-1 text-sm text-navy/45">
+          <p className="mt-1 text-sm text-ink">
             Group your flowers so customers can browse by collection.
           </p>
         </div>
@@ -160,7 +160,7 @@ export function CategoryManager({ categories }: { categories: Category[] }) {
           {categories.map((category) => (
             <article
               key={category.id}
-              className="overflow-hidden rounded-2xl border border-navy/5 bg-white shadow-sm"
+              className="overflow-hidden rounded-2xl border border-line bg-white shadow-sm"
             >
               <div className="relative h-32 w-full bg-gradient-to-br from-pink-soft to-blush">
                 {category.image_url ? (
@@ -172,7 +172,7 @@ export function CategoryManager({ categories }: { categories: Category[] }) {
                     className="object-cover"
                   />
                 ) : (
-                  <span className="grid h-full place-items-center text-pink">
+                  <span className="grid h-full place-items-center text-deep-rose">
                     <FlowerMark className="h-8 w-8" />
                   </span>
                 )}
@@ -190,17 +190,17 @@ export function CategoryManager({ categories }: { categories: Category[] }) {
                     <h2 className="truncate text-sm font-semibold">
                       {category.name}
                     </h2>
-                    <p className="mt-0.5 truncate text-[11px] text-navy/35">
+                    <p className="mt-0.5 truncate text-[11px] text-ink">
                       /{category.slug}
                     </p>
                   </div>
-                  <span className="flex shrink-0 items-center gap-1 rounded-full bg-blush px-2 py-1 text-[10px] text-navy/45">
+                  <span className="flex shrink-0 items-center gap-1 rounded-full bg-blush px-2 py-1 text-[10px] text-ink">
                     <Tags className="h-3 w-3" />
                     #{category.sort_order}
                   </span>
                 </div>
 
-                <p className="mt-2 line-clamp-2 min-h-[2.4em] text-xs leading-relaxed text-navy/50">
+                <p className="mt-2 line-clamp-2 min-h-[2.4em] text-xs leading-relaxed text-ink">
                   {category.description || "No description yet."}
                 </p>
 
@@ -210,7 +210,7 @@ export function CategoryManager({ categories }: { categories: Category[] }) {
                   </p>
                 )}
 
-                <div className="mt-3 flex gap-1.5 border-t border-navy/5 pt-3">
+                <div className="mt-3 flex gap-1.5 border-t border-line pt-3">
                   <Button variant="ghost" size="sm" onClick={() => openEdit(category)}>
                     <Pencil className="h-3.5 w-3.5" />
                     Edit
@@ -317,7 +317,7 @@ export function CategoryManager({ categories }: { categories: Category[] }) {
             </label>
           </div>
 
-          <div className="flex justify-end gap-2 border-t border-navy/5 pt-4">
+          <div className="flex justify-end gap-2 border-t border-line pt-4">
             <Button type="button" variant="ghost" onClick={closeForm}>
               Cancel
             </Button>
@@ -346,7 +346,7 @@ export function CategoryManager({ categories }: { categories: Category[] }) {
         }
       >
         {deleting && (
-          <p className="text-sm leading-relaxed text-navy/60">
+          <p className="text-sm leading-relaxed text-navy/70">
             <span className="font-medium text-navy">{deleting.name}</span> will be
             removed from your storefront. This cannot be undone.
           </p>

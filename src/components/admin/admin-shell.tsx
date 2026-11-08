@@ -71,7 +71,7 @@ function SidebarContent({
     <div className="flex h-full flex-col">
       <div className="px-5 pb-5 pt-6">
         <Link href="/admin" onClick={onNavigate} className="flex items-center gap-2.5">
-          <span className="grid h-10 w-10 place-items-center rounded-2xl bg-white/10 text-pink">
+          <span className="grid h-10 w-10 place-items-center rounded-2xl bg-white/10 text-gold">
             <FlowerMark className="h-5 w-5" />
           </span>
           <span>
@@ -146,12 +146,12 @@ export function AdminShell({
   }, [open]);
 
   return (
-    <div className="min-h-screen bg-[#f6f7fb]">
+    <div className="min-h-screen bg-blush">
       <aside className="fixed inset-y-0 left-0 z-40 hidden w-[260px] bg-navy lg:block">
         <SidebarContent admin={admin} />
       </aside>
 
-      <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-navy/5 bg-white/90 px-4 backdrop-blur lg:hidden">
+      <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-line bg-white/90 px-4 backdrop-blur lg:hidden">
         <div className="flex items-center gap-2.5">
           <button
             type="button"

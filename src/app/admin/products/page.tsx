@@ -79,13 +79,13 @@ export default async function AdminProductsPage({
     <div>
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-pink">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-deep-rose">
             Catalog
           </p>
           <h1 className="mt-1 text-2xl font-semibold tracking-tight sm:text-3xl">
             Products
           </h1>
-          <p className="mt-1 text-sm text-navy/45">
+          <p className="mt-1 text-sm text-ink">
             {total} {total === 1 ? "product" : "products"} in your catalog.
           </p>
         </div>
@@ -95,7 +95,7 @@ export default async function AdminProductsPage({
         </Link>
       </div>
 
-      <AutoFilterForm className="mt-5 flex flex-col gap-2 rounded-2xl border border-navy/5 bg-white p-3 shadow-sm sm:flex-row sm:items-center">
+      <AutoFilterForm className="mt-5 flex flex-col gap-2 rounded-2xl border border-line bg-white p-3 shadow-sm sm:flex-row sm:items-center">
         <div className="relative flex-1">
           <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/30" />
           <Input
@@ -155,10 +155,10 @@ export default async function AdminProductsPage({
           </Link>
         </EmptyState>
       ) : (
-        <div className="mt-5 overflow-hidden rounded-2xl border border-navy/5 bg-white shadow-sm">
+        <div className="mt-5 overflow-hidden rounded-2xl border border-line bg-white shadow-sm">
           <div className="overflow-x-auto">
             <table className="w-full min-w-[720px] text-left text-sm">
-              <thead className="bg-blush/60 text-[10px] uppercase tracking-wider text-navy/40">
+              <thead className="bg-blush/60 text-[10px] uppercase tracking-wider text-ink">
                 <tr>
                   <th className="px-4 py-3 font-semibold">Product</th>
                   <th className="px-3 py-3 font-semibold">Category</th>
@@ -194,7 +194,7 @@ export default async function AdminProductsPage({
                                 className="object-cover"
                               />
                             ) : (
-                              <span className="grid h-full place-items-center text-pink">
+                              <span className="grid h-full place-items-center text-deep-rose">
                                 <FlowerMark className="h-4 w-4" />
                               </span>
                             )}
@@ -203,13 +203,13 @@ export default async function AdminProductsPage({
                             <p className="max-w-[240px] truncate text-xs font-semibold">
                               {product.name}
                             </p>
-                            <p className="mt-0.5 max-w-[240px] truncate text-[10px] text-navy/35">
+                            <p className="mt-0.5 max-w-[240px] truncate text-[10px] text-ink">
                               /{product.slug}
                             </p>
                           </div>
                         </div>
                       </td>
-                      <td className="px-3 py-3 text-xs text-navy/55">
+                      <td className="px-3 py-3 text-xs text-ink">
                         {product.category?.name ?? "—"}
                       </td>
                       <td className="px-3 py-3">
@@ -220,7 +220,7 @@ export default async function AdminProductsPage({
                             types.map((type) => (
                               <span
                                 key={type}
-                                className="rounded-full bg-pink-soft px-2 py-0.5 text-[9px] font-medium uppercase tracking-wide text-navy/55"
+                                className="rounded-full bg-pink-soft px-2 py-0.5 text-[9px] font-medium uppercase tracking-wide text-ink"
                               >
                                 {PRICING_TYPE_LABEL[type] ?? type}
                               </span>
@@ -273,7 +273,7 @@ export default async function AdminProductsPage({
       )}
 
       {totalPages > 1 && (
-        <div className="mt-4 flex items-center justify-between text-xs text-navy/45">
+        <div className="mt-4 flex items-center justify-between text-xs text-ink">
           <span>
             Page {page} of {totalPages}
           </span>

@@ -90,7 +90,7 @@ export function CancelOrderButton({ orderId }: { orderId: string }) {
               ))}
             </Select>
           </div>
-          <p className="text-sm leading-relaxed text-navy/60">
+          <p className="text-sm leading-relaxed text-navy/70">
             You can always place a new order later. If you just need to change
             something, our team will be happy to help.
           </p>

@@ -30,7 +30,7 @@ export function StatusBadge({
     <span
       className={cn(
         "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold capitalize tracking-wide",
-        tones[status] ?? "border-navy/10 bg-white text-navy/70",
+        tones[status] ?? "border-line bg-white text-navy/70",
         className
       )}
     >

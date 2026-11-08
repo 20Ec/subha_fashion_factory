@@ -92,6 +92,7 @@ CLOUDINARY_API_SECRET=your-api-secret
 # Public site config
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_INSTAGRAM_URL=https://www.instagram.com/your-handle
+NEXT_PUBLIC_YOUTUBE_URL=https://www.youtube.com/@your-handle
 ```
 
 > `.env.local` already exists with placeholders so the project builds. Replace every placeholder before using the app.

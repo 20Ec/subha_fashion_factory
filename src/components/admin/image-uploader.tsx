@@ -122,7 +122,7 @@ export function ImageUploader({
         {images.map((image, index) => (
           <div
             key={`${image.image_url}-${index}`}
-            className="group relative aspect-square overflow-hidden rounded-xl border border-navy/10 bg-blush"
+            className="group relative aspect-square overflow-hidden rounded-xl border border-line bg-blush"
           >
             <Image
               src={image.image_url}
@@ -152,7 +152,7 @@ export function ImageUploader({
           onClick={() => inputRef.current?.click()}
           disabled={uploading}
           className={cn(
-            "flex aspect-square flex-col items-center justify-center gap-1.5 rounded-xl border border-dashed border-navy/20 bg-white text-navy/45 transition hover:border-blue/50 hover:text-blue",
+            "flex aspect-square flex-col items-center justify-center gap-1.5 rounded-xl border border-dashed border-navy/20 bg-white text-ink transition hover:border-blue/50 hover:text-blue",
             uploading && "pointer-events-none opacity-60"
           )}
         >
@@ -163,7 +163,7 @@ export function ImageUploader({
             </>
           ) : images.length === 0 ? (
             <>
-              <FlowerMark className="h-6 w-6 text-pink" />
+              <FlowerMark className="h-6 w-6 text-deep-rose" />
               <span className="text-[10px] font-medium">Add photo</span>
             </>
           ) : (
@@ -184,7 +184,7 @@ export function ImageUploader({
         onChange={(event) => handleFiles(event.target.files)}
       />
 
-      <p className="mt-2 text-[11px] text-navy/40">
+      <p className="mt-2 text-[11px] text-ink">
         {hint ??
           (multiple
             ? "The first image is used as the cover. JPG, PNG or WebP up to 10 MB."

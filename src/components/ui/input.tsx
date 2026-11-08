@@ -7,7 +7,7 @@ import type {
 import { cn } from "@/lib/utils";
 
 const base =
-  "w-full rounded-xl border border-navy/15 bg-white px-4 text-sm text-navy shadow-sm outline-none transition placeholder:text-navy/35 focus:border-blue focus:ring-4 focus:ring-blue/10 disabled:cursor-not-allowed disabled:bg-navy/5";
+  "w-full rounded-xl border border-line bg-white px-4 text-sm text-navy shadow-sm outline-none transition placeholder:text-ink/60 focus:border-pink focus:ring-4 focus:ring-pink/15 disabled:cursor-not-allowed disabled:bg-blush";
 
 export function Input({
   className,

@@ -293,7 +293,7 @@ export function OrderUpdateForm({ order }: { order: Order }) {
                 );
               })}
             </Select>
-            <p className="mt-1.5 text-[10px] text-navy/40">
+            <p className="mt-1.5 text-[10px] text-ink">
               {cancelled
                 ? "Cancelled orders cannot be reopened."
                 : allowedNext.length === 0
@@ -324,7 +324,7 @@ export function OrderUpdateForm({ order }: { order: Order }) {
                 </option>
               ))}
             </Select>
-            <p className="mt-1.5 text-[10px] text-navy/40">
+            <p className="mt-1.5 text-[10px] text-ink">
               Payment only moves forward: pending → paid → refunded.
             </p>
           </div>
@@ -342,7 +342,7 @@ export function OrderUpdateForm({ order }: { order: Order }) {
             placeholder="Final amount confirmed on the call"
             disabled={cancelled}
           />
-          <p className="mt-1.5 text-[10px] text-navy/40">
+          <p className="mt-1.5 text-[10px] text-ink">
             Items subtotal is {formatINR(order.subtotal)}. Leave blank until the
             price including delivery is confirmed.
           </p>
@@ -351,7 +351,7 @@ export function OrderUpdateForm({ order }: { order: Order }) {
         {status === "shipped" && (
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-navy/45">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink">
                 Shipping details
               </p>
               <span className="text-[10px] font-medium text-rose-600">
@@ -392,7 +392,7 @@ export function OrderUpdateForm({ order }: { order: Order }) {
                 />
               </div>
             </div>
-            <p className="text-[10px] text-navy/40">
+            <p className="text-[10px] text-ink">
               Customers see these details on their order page while the order is
               shipped or delivered.
             </p>
@@ -421,7 +421,7 @@ export function OrderUpdateForm({ order }: { order: Order }) {
           Review order update
         </Button>
         {changes.length === 0 && !locked && (
-          <p className="text-[10px] text-navy/40">
+          <p className="text-[10px] text-ink">
             Change a field to enable the update button.
           </p>
         )}
@@ -452,11 +452,11 @@ export function OrderUpdateForm({ order }: { order: Order }) {
           {changes.map((change) => (
             <div
               key={change.label}
-              className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-navy/5 bg-blush/50 px-3.5 py-2.5 text-xs"
+              className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-line bg-blush/50 px-3.5 py-2.5 text-xs"
             >
-              <span className="font-medium text-navy/55">{change.label}</span>
+              <span className="font-medium text-ink">{change.label}</span>
               <span className="flex items-center gap-1.5 font-medium text-navy">
-                <span className="text-navy/45">{change.from}</span>
+                <span className="text-ink">{change.from}</span>
                 <ArrowRight className="h-3.5 w-3.5 text-blue" />
                 <span>{change.to}</span>
               </span>

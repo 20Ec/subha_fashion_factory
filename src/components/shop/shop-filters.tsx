@@ -62,7 +62,7 @@ export function ShopFilters({
             "shrink-0 rounded-full border px-4 py-2 text-xs font-medium transition",
             !currentCategory
               ? "border-navy bg-navy text-white"
-              : "border-navy/10 bg-white text-navy/60 hover:border-navy/30"
+              : "border-line bg-white text-navy/70 hover:border-navy/30"
           )}
         >
           All flowers
@@ -76,7 +76,7 @@ export function ShopFilters({
               "shrink-0 rounded-full border px-4 py-2 text-xs font-medium transition",
               currentCategory === category.slug
                 ? "border-navy bg-navy text-white"
-                : "border-navy/10 bg-white text-navy/60 hover:border-navy/30"
+                : "border-line bg-white text-navy/70 hover:border-navy/30"
             )}
           >
             {category.name}
@@ -84,7 +84,7 @@ export function ShopFilters({
         ))}
       </div>
 
-      <div className="mt-4 flex flex-col gap-2.5 rounded-2xl border border-navy/5 bg-white p-3 shadow-sm sm:flex-row sm:items-center">
+      <div className="mt-4 flex flex-col gap-2.5 rounded-2xl border border-line bg-white p-3 shadow-sm sm:flex-row sm:items-center">
         <form
           className="relative flex-1"
           onSubmit={(event) => {
@@ -92,7 +92,7 @@ export function ShopFilters({
             navigate({ q: query.trim() || null });
           }}
         >
-          <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/35" />
+          <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-ink" />
           <Input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
@@ -107,7 +107,7 @@ export function ShopFilters({
                 setQuery("");
                 navigate({ q: null });
               }}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-navy/35 hover:text-navy"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-ink hover:text-navy"
               aria-label="Clear search"
             >
               <X className="h-4 w-4" />
@@ -117,7 +117,7 @@ export function ShopFilters({
 
         <div className="grid grid-cols-2 gap-2 sm:flex sm:items-center">
           <div className="relative">
-            <SlidersHorizontal className="pointer-events-none absolute left-3 top-1/2 z-10 h-3.5 w-3.5 -translate-y-1/2 text-navy/35" />
+            <SlidersHorizontal className="pointer-events-none absolute left-3 top-1/2 z-10 h-3.5 w-3.5 -translate-y-1/2 text-ink" />
             <Select
               value={currentType}
               onChange={(event) =>
@@ -152,7 +152,7 @@ export function ShopFilters({
       </div>
 
       <div className="mt-4 flex items-center justify-between">
-        <p className="text-xs text-navy/45">
+        <p className="text-xs text-ink">
           {total} {total === 1 ? "arrangement" : "arrangements"}
         </p>
         {hasFilters && (

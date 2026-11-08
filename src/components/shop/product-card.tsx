@@ -15,7 +15,7 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       href={`/product/${product.slug}`}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-navy/5 bg-white shadow-[0_10px_30px_-24px_rgba(11,27,58,0.4)] transition duration-300 hover:-translate-y-1 hover:shadow-soft"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-line bg-white shadow-[0_10px_30px_-24px_rgba(123,45,142,0.4)] transition duration-300 hover:-translate-y-1 hover:border-pink/50 hover:shadow-soft"
     >
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-gradient-to-br from-pink-soft to-blush">
         {image ? (
@@ -27,7 +27,7 @@ export function ProductCard({ product }: { product: Product }) {
             className="object-cover transition duration-500 group-hover:scale-[1.04]"
           />
         ) : (
-          <div className="grid h-full place-items-center text-pink">
+          <div className="grid h-full place-items-center text-deep-rose">
             <FlowerMark className="h-10 w-10" />
           </div>
         )}
@@ -38,7 +38,7 @@ export function ProductCard({ product }: { product: Product }) {
 
       <div className="flex flex-1 flex-col p-3.5 sm:p-4">
         {product.category?.name && (
-          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-navy/40">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink">
             {product.category.name}
           </p>
         )}
@@ -47,7 +47,7 @@ export function ProductCard({ product }: { product: Product }) {
         </h3>
         <div className="mt-auto flex items-end justify-between gap-2 pt-3">
           <div>
-            <p className="text-[10px] uppercase tracking-wide text-navy/40">
+            <p className="text-[10px] uppercase tracking-wide text-ink">
               From
             </p>
             <p className="text-sm font-semibold text-navy sm:text-base">
@@ -58,7 +58,7 @@ export function ProductCard({ product }: { product: Product }) {
             {types.map((type) => (
               <span
                 key={type}
-                className="rounded-full bg-blush px-2 py-0.5 text-[9px] font-medium uppercase tracking-wide text-navy/50"
+                className="rounded-full bg-blush px-2 py-0.5 text-[9px] font-medium uppercase tracking-wide text-ink"
               >
                 {PRICING_TYPE_LABEL[type]}
               </span>

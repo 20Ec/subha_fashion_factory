@@ -1,19 +1,22 @@
 import Link from "next/link";
 import { Home, Search } from "lucide-react";
 import { buttonClass } from "@/components/ui/button";
-import { FloralArt } from "@/components/ui/floral-art";
+import { FloralPhoto } from "@/components/ui/floral-photo";
 
 export default function NotFound() {
   return (
     <div className="container-page flex min-h-[70vh] flex-col items-center justify-center py-16 text-center">
-      <FloralArt className="max-w-[220px] opacity-90" />
-      <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.24em] text-pink">
+      <FloralPhoto
+        className="max-w-[220px] rounded-[1.5rem] opacity-90"
+        sizes="220px"
+      />
+      <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.24em] text-deep-rose">
         404 — Page not found
       </p>
       <h1 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
         This petal drifted away
       </h1>
-      <p className="mt-2 max-w-sm text-sm text-navy/50">
+      <p className="mt-2 max-w-sm text-sm text-ink">
         The page you&apos;re looking for doesn&apos;t exist or has been moved.
         Let&apos;s get you back to the blooms.
       </p>

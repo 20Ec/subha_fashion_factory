@@ -11,7 +11,7 @@ import { getCategories, getHomeProducts } from "@/lib/data";
 import { SITE } from "@/lib/config";
 import { buttonClass } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
-import { FloralArt } from "@/components/ui/floral-art";
+import { FloralPhoto } from "@/components/ui/floral-photo";
 import { FlowerMark } from "@/components/ui/logo";
 import { ProductCard } from "@/components/shop/product-card";
 
@@ -26,12 +26,12 @@ export default async function HomePage() {
       {/* ---------------- HERO ---------------- */}
       <section className="relative">
         <div className="pointer-events-none absolute -left-24 top-24 h-64 w-64 rounded-full bg-pink-soft/60 blur-3xl" />
-        <div className="pointer-events-none absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-blue/5 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
 
         <div className="container-page relative grid items-center gap-10 py-10 sm:py-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6 lg:py-20">
           <div className="animate-fade-up">
-            <span className="inline-flex items-center gap-2 rounded-full border border-pink/40 bg-white/80 px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-navy/60">
-              <FlowerMark className="h-3.5 w-3.5 text-pink" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-highlight/50 bg-white/80 px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-navy/70">
+              <FlowerMark className="h-3.5 w-3.5 text-leaf" />
               Handmade &amp; artificial flowers
             </span>
 
@@ -41,7 +41,7 @@ export default async function HomePage() {
                 never fade
                 <svg
                   viewBox="0 0 320 22"
-                  className="absolute -bottom-2 left-0 h-4 w-full text-pink"
+                  className="absolute -bottom-2 left-0 h-4 w-full text-highlight"
                   fill="none"
                   aria-hidden="true"
                 >
@@ -57,7 +57,7 @@ export default async function HomePage() {
               and memories that stay.
             </h1>
 
-            <p className="mt-6 max-w-md text-sm leading-relaxed text-navy/55 sm:text-base">
+            <p className="mt-6 max-w-md text-sm leading-relaxed text-ink sm:text-base">
               Elegant handmade and artificial blooms, crafted petal by petal
               for your home, your celebrations and the people you love.
             </p>
@@ -75,27 +75,27 @@ export default async function HomePage() {
               </Link>
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] font-medium text-navy/45">
+            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] font-medium text-ink">
               <span className="inline-flex items-center gap-1.5">
-                <BadgeCheck className="h-4 w-4 text-blue" />
+                <BadgeCheck className="h-4 w-4 text-leaf" />
                 Made by hand
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <Palette className="h-4 w-4 text-blue" />
+                <Palette className="h-4 w-4 text-leaf" />
                 Custom colours
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <Sparkles className="h-4 w-4 text-blue" />
+                <Sparkles className="h-4 w-4 text-leaf" />
                 Personal order confirmation
               </span>
             </div>
           </div>
 
           <div className="relative mx-auto w-full max-w-[520px] animate-fade-up [animation-delay:120ms]">
-            <FloralArt />
+            <FloralPhoto priority className="shadow-soft" />
 
-            <div className="absolute left-0 top-8 rounded-2xl border border-white bg-white/90 px-4 py-3 shadow-soft backdrop-blur sm:left-2 sm:top-12">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-navy/40">
+            <div className="absolute left-0 top-8 rounded-2xl border border-line bg-white/90 px-4 py-3 shadow-soft backdrop-blur sm:left-2 sm:top-12">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink">
                 Handcrafted
               </p>
               <p className="mt-0.5 text-sm font-medium text-navy">
@@ -104,7 +104,7 @@ export default async function HomePage() {
             </div>
 
             <div className="absolute bottom-10 right-0 rounded-2xl bg-navy px-4 py-3 text-white shadow-soft sm:right-2">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-pink">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold">
                 Made for you
               </p>
               <p className="mt-0.5 text-sm font-medium">Every order, confirmed</p>
@@ -118,7 +118,7 @@ export default async function HomePage() {
         <section className="container-page py-12 sm:py-16">
           <div className="flex items-end justify-between gap-4">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-pink">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-deep-rose">
                 Explore
               </p>
               <h2 className="mt-1.5 text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -139,7 +139,7 @@ export default async function HomePage() {
               <Link
                 key={category.id}
                 href={`/shop?category=${category.slug}`}
-                className="group relative flex h-36 flex-col justify-end overflow-hidden rounded-2xl border border-navy/5 p-4 sm:h-44"
+                className="group relative flex h-36 flex-col justify-end overflow-hidden rounded-2xl border border-line p-4 sm:h-44"
               >
                 {category.image_url ? (
                   <>
@@ -158,11 +158,11 @@ export default async function HomePage() {
                 ) : (
                   <>
                     <span className="absolute inset-0 bg-gradient-to-br from-pink-soft via-white to-blush" />
-                    <FlowerMark className="absolute right-3 top-3 h-9 w-9 text-pink/70" />
+                    <FlowerMark className="absolute right-3 top-3 h-9 w-9 text-deep-rose/70" />
                     <span className="relative text-sm font-medium text-navy">
                       {category.name}
                     </span>
-                    <span className="relative mt-0.5 text-[11px] text-navy/45">
+                    <span className="relative mt-0.5 text-[11px] text-ink">
                       Explore collection
                     </span>
                   </>
@@ -177,7 +177,7 @@ export default async function HomePage() {
       <section className="container-page py-10 sm:py-14">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-pink">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-deep-rose">
               Fresh from the studio
             </p>
             <h2 className="mt-1.5 text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -222,13 +222,16 @@ export default async function HomePage() {
 
       {/* ---------------- CRAFT ---------------- */}
       <section id="craft" className="container-page scroll-mt-24 py-12 sm:py-20">
-        <div className="grid items-center gap-8 overflow-hidden rounded-[2rem] border border-navy/5 bg-white p-6 sm:p-10 lg:grid-cols-2 lg:p-12">
+        <div className="grid items-center gap-8 overflow-hidden rounded-[2rem] border border-line bg-white p-6 sm:p-10 lg:grid-cols-2 lg:p-12">
           <div className="relative">
             <div className="rounded-[1.6rem] bg-gradient-to-br from-pink-soft via-blush to-white p-6">
-              <FloralArt className="mx-auto max-w-[340px]" />
+              <FloralPhoto
+                className="mx-auto max-w-[340px]"
+                sizes="(max-width: 1024px) 80vw, 340px"
+              />
             </div>
             <div className="absolute -bottom-3 left-4 rounded-2xl bg-white px-4 py-3 shadow-soft sm:left-6">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-pink">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-deep-rose">
                 Small studio
               </p>
               <p className="text-sm font-medium">Big attention to detail</p>
@@ -236,13 +239,13 @@ export default async function HomePage() {
           </div>
 
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-pink">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-deep-rose">
               Our craft
             </p>
             <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
               Thoughtfully made, never rushed
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-navy/55">
+            <p className="mt-4 text-sm leading-relaxed text-ink">
               Each arrangement is shaped by hand — from the curve of a petal to
               the shade of the stem. Whether it&apos;s a single stem or a full
               celebration setup, we make every piece feel personal.
@@ -274,7 +277,7 @@ export default async function HomePage() {
                     <h3 className="text-sm font-medium text-navy">
                       {item.title}
                     </h3>
-                    <p className="mt-0.5 text-xs leading-relaxed text-navy/50">
+                    <p className="mt-0.5 text-xs leading-relaxed text-ink">
                       {item.text}
                     </p>
                   </div>
@@ -287,12 +290,12 @@ export default async function HomePage() {
 
       {/* ---------------- INSTAGRAM ---------------- */}
       <section className="container-page pb-4">
-        <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-pink-soft via-[#fff0f6] to-white px-6 py-12 text-center sm:px-10">
-          <FlowerMark className="mx-auto h-8 w-8 text-pink" />
+        <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-pink-soft via-white to-blush px-6 py-12 text-center sm:px-10">
+          <FlowerMark className="mx-auto h-8 w-8 text-highlight" />
           <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">
             See what&apos;s blooming
           </h2>
-          <p className="mx-auto mt-2 max-w-md text-sm text-navy/55">
+          <p className="mx-auto mt-2 max-w-md text-sm text-ink">
             New arrangements, behind-the-scenes moments and custom work — all on
             our Instagram.
           </p>

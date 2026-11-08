@@ -85,18 +85,18 @@ export default async function AdminOrdersPage({
   return (
     <div>
       <div>
-        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-pink">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-deep-rose">
           Orders
         </p>
         <h1 className="mt-1 text-2xl font-semibold tracking-tight sm:text-3xl">
           Orders
         </h1>
-        <p className="mt-1 text-sm text-navy/45">
+        <p className="mt-1 text-sm text-ink">
           {total} {total === 1 ? "order" : "orders"} placed so far.
         </p>
       </div>
 
-      <AutoFilterForm className="mt-5 flex flex-col gap-2 rounded-2xl border border-navy/5 bg-white p-3 shadow-sm sm:flex-row sm:items-center">
+      <AutoFilterForm className="mt-5 flex flex-col gap-2 rounded-2xl border border-line bg-white p-3 shadow-sm sm:flex-row sm:items-center">
         <div className="relative flex-1">
           <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/30" />
           <Input
@@ -153,10 +153,10 @@ export default async function AdminOrdersPage({
           }
         />
       ) : (
-        <div className="mt-5 overflow-hidden rounded-2xl border border-navy/5 bg-white shadow-sm">
+        <div className="mt-5 overflow-hidden rounded-2xl border border-line bg-white shadow-sm">
           <div className="overflow-x-auto">
             <table className="w-full min-w-[760px] text-left text-sm">
-              <thead className="bg-blush/60 text-[10px] uppercase tracking-wider text-navy/40">
+              <thead className="bg-blush/60 text-[10px] uppercase tracking-wider text-ink">
                 <tr>
                   <th className="px-4 py-3 font-semibold">Order</th>
                   <th className="px-3 py-3 font-semibold">Customer</th>
@@ -187,11 +187,11 @@ export default async function AdminOrdersPage({
                         <p className="max-w-[180px] truncate text-xs">
                           {order.customer_name || "—"}
                         </p>
-                        <p className="text-[10px] text-navy/35">
+                        <p className="text-[10px] text-ink">
                           {order.customer_phone}
                         </p>
                       </td>
-                      <td className="px-3 py-3 text-xs text-navy/55">
+                      <td className="px-3 py-3 text-xs text-ink">
                         {itemCount} {itemCount === 1 ? "item" : "items"}
                       </td>
                       <td className="px-3 py-3">
@@ -208,7 +208,7 @@ export default async function AdminOrdersPage({
                       <td className="px-3 py-3">
                         <StatusBadge status={order.payment_status} />
                       </td>
-                      <td className="px-4 py-3 text-right text-[10px] text-navy/40">
+                      <td className="px-4 py-3 text-right text-[10px] text-ink">
                         {formatDate(order.placed_at, true)}
                       </td>
                     </tr>
@@ -221,7 +221,7 @@ export default async function AdminOrdersPage({
       )}
 
       {totalPages > 1 && (
-        <div className="mt-4 flex items-center justify-between text-xs text-navy/45">
+        <div className="mt-4 flex items-center justify-between text-xs text-ink">
           <span>
             Page {page} of {totalPages}
           </span>

@@ -66,10 +66,10 @@ export function CheckoutView({ addresses }: { addresses: Address[] }) {
     return (
       <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_360px]">
         <div className="space-y-3">
-          <div className="h-48 animate-pulse rounded-2xl border border-navy/5 bg-white" />
-          <div className="h-32 animate-pulse rounded-2xl border border-navy/5 bg-white" />
+          <div className="h-48 animate-pulse rounded-2xl border border-line bg-white" />
+          <div className="h-32 animate-pulse rounded-2xl border border-line bg-white" />
         </div>
-        <div className="h-72 animate-pulse rounded-2xl border border-navy/5 bg-white" />
+        <div className="h-72 animate-pulse rounded-2xl border border-line bg-white" />
       </div>
     );
   }
@@ -91,11 +91,11 @@ export function CheckoutView({ addresses }: { addresses: Address[] }) {
   return (
     <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_360px] lg:items-start">
       <div className="space-y-5">
-        <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-card">
+        <section className="rounded-2xl border border-line bg-white p-5 shadow-card">
           <div className="flex items-center justify-between gap-3">
             <div>
               <h2 className="text-base font-semibold">Delivery address</h2>
-              <p className="mt-0.5 text-xs text-navy/45">
+              <p className="mt-0.5 text-xs text-ink">
                 Choose where your flowers should arrive.
               </p>
             </div>
@@ -111,7 +111,7 @@ export function CheckoutView({ addresses }: { addresses: Address[] }) {
           </div>
 
           {atLimit && (
-            <p className="mt-3 rounded-xl bg-blush px-3.5 py-2.5 text-[11px] text-navy/50">
+            <p className="mt-3 rounded-xl bg-blush px-3.5 py-2.5 text-[11px] text-ink">
               You have 5 saved addresses. Manage them from{" "}
               <Link href="/account" className="font-medium text-blue">
                 My account
@@ -121,10 +121,10 @@ export function CheckoutView({ addresses }: { addresses: Address[] }) {
           )}
 
           {addresses.length === 0 ? (
-            <div className="mt-4 rounded-xl border border-dashed border-navy/15 p-6 text-center">
-              <MapPin className="mx-auto h-6 w-6 text-pink" />
+            <div className="mt-4 rounded-xl border border-dashed border-line p-6 text-center">
+              <MapPin className="mx-auto h-6 w-6 text-deep-rose" />
               <p className="mt-2 text-sm font-medium">No address saved yet</p>
-              <p className="mt-1 text-xs text-navy/45">
+              <p className="mt-1 text-xs text-ink">
                 Add an address to continue.
               </p>
               <Button
@@ -145,7 +145,7 @@ export function CheckoutView({ addresses }: { addresses: Address[] }) {
                     className={`cursor-pointer rounded-2xl border p-4 transition ${
                       active
                         ? "border-blue bg-blue/5 ring-1 ring-blue"
-                        : "border-navy/10 bg-white hover:border-navy/25"
+                        : "border-line bg-white hover:border-navy/25"
                     }`}
                   >
                     <div className="flex items-start gap-2.5">
@@ -165,10 +165,10 @@ export function CheckoutView({ addresses }: { addresses: Address[] }) {
                             <StatusBadge status="delivered" label="Default" />
                           )}
                         </div>
-                        <p className="mt-0.5 text-[11px] text-navy/45">
+                        <p className="mt-0.5 text-[11px] text-ink">
                           {address.phone}
                         </p>
-                        <p className="mt-2 text-xs leading-relaxed text-navy/55">
+                        <p className="mt-2 text-xs leading-relaxed text-ink">
                           {address.line1}
                           {address.line2 ? `, ${address.line2}` : ""}
                           <br />
@@ -183,9 +183,9 @@ export function CheckoutView({ addresses }: { addresses: Address[] }) {
           )}
         </section>
 
-        <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-card">
+        <section className="rounded-2xl border border-line bg-white p-5 shadow-card">
           <h2 className="text-base font-semibold">Order note</h2>
-          <p className="mt-0.5 text-xs text-navy/45">
+          <p className="mt-0.5 text-xs text-ink">
             Colours, occasion, delivery instructions — anything we should know.
           </p>
           <Textarea
@@ -203,7 +203,7 @@ export function CheckoutView({ addresses }: { addresses: Address[] }) {
           </span>
           <div>
             <p className="text-sm font-medium">No online payment</p>
-            <p className="mt-0.5 text-xs leading-relaxed text-navy/55">
+            <p className="mt-0.5 text-xs leading-relaxed text-ink">
               Our team will call you to confirm your order and final pricing,
               and arrange payment separately.
             </p>
@@ -211,7 +211,7 @@ export function CheckoutView({ addresses }: { addresses: Address[] }) {
         </div>
       </div>
 
-      <aside className="rounded-2xl border border-navy/5 bg-white p-5 shadow-card lg:sticky lg:top-28">
+      <aside className="rounded-2xl border border-line bg-white p-5 shadow-card lg:sticky lg:top-28">
         <h2 className="text-base font-semibold">Your order</h2>
 
         <div className="mt-4 max-h-64 space-y-3 overflow-y-auto pr-1">
@@ -227,14 +227,14 @@ export function CheckoutView({ addresses }: { addresses: Address[] }) {
                     className="object-cover"
                   />
                 ) : (
-                  <span className="grid h-full place-items-center text-pink">
+                  <span className="grid h-full place-items-center text-deep-rose">
                     <FlowerMark className="h-4 w-4" />
                   </span>
                 )}
               </div>
               <div className="min-w-0 flex-1">
                 <p className="truncate text-xs font-medium">{line.name}</p>
-                <p className="truncate text-[10px] text-navy/45">
+                <p className="truncate text-[10px] text-ink">
                   {line.label} × {line.quantity}
                 </p>
               </div>
@@ -245,11 +245,11 @@ export function CheckoutView({ addresses }: { addresses: Address[] }) {
           ))}
         </div>
 
-        <div className="mt-4 flex items-center justify-between border-t border-navy/5 pt-4">
+        <div className="mt-4 flex items-center justify-between border-t border-line pt-4">
           <span className="text-sm font-medium">Total</span>
           <span className="text-xl font-semibold">{formatINR(subtotal)}</span>
         </div>
-        <p className="mt-1 text-right text-[10px] text-navy/40">
+        <p className="mt-1 text-right text-[10px] text-ink">
           Delivery confirmed on call
         </p>
 
@@ -270,13 +270,13 @@ export function CheckoutView({ addresses }: { addresses: Address[] }) {
 
         <Link
           href="/cart"
-          className="mt-3 flex items-center justify-center gap-1 text-xs font-medium text-navy/45 hover:text-navy"
+          className="mt-3 flex items-center justify-center gap-1 text-xs font-medium text-ink hover:text-navy"
         >
           <ChevronLeft className="h-3.5 w-3.5" />
           Back to cart
         </Link>
 
-        <div className="mt-4 flex items-center justify-center gap-1.5 border-t border-navy/5 pt-4 text-[10px] text-navy/35">
+        <div className="mt-4 flex items-center justify-center gap-1.5 border-t border-line pt-4 text-[10px] text-ink">
           <ShieldCheck className="h-3.5 w-3.5" />
           Your details are stored securely
         </div>

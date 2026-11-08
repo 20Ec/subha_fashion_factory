@@ -27,13 +27,13 @@ export default async function OrdersPage() {
 
   return (
     <div className="container-page py-8 sm:py-12">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-pink">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-deep-rose">
         From our studio to you
       </p>
       <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">
         My orders
       </h1>
-      <p className="mt-2 max-w-xl text-sm text-navy/50">
+      <p className="mt-2 max-w-xl text-sm text-ink">
         Track every arrangement, revisit past orders and manage returns or
         replacements.
       </p>
@@ -63,15 +63,15 @@ export default async function OrdersPage() {
             return (
               <article
                 key={order.id}
-                className="rounded-2xl border border-navy/5 bg-white p-4 shadow-card sm:p-5"
+                className="rounded-2xl border border-line bg-white p-4 shadow-card sm:p-5"
               >
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-navy/5 pb-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-line pb-3">
                   <div>
                     <p className="flex items-center gap-2 text-sm font-semibold">
                       <Package className="h-4 w-4 text-blue" />
                       {order.order_number}
                     </p>
-                    <p className="mt-0.5 text-[11px] text-navy/40">
+                    <p className="mt-0.5 text-[11px] text-ink">
                       Placed on {formatDate(order.placed_at, true)}
                     </p>
                   </div>
@@ -94,14 +94,14 @@ export default async function OrdersPage() {
                             className="object-cover"
                           />
                         ) : (
-                          <span className="grid h-full place-items-center text-pink">
+                          <span className="grid h-full place-items-center text-deep-rose">
                             <FlowerMark className="h-4 w-4" />
                           </span>
                         )}
                       </div>
                     ))}
                     {items.length > 3 && (
-                      <div className="grid h-16 w-14 place-items-center rounded-lg bg-blush text-xs font-medium text-navy/50">
+                      <div className="grid h-16 w-14 place-items-center rounded-lg bg-blush text-xs font-medium text-ink">
                         +{items.length - 3}
                       </div>
                     )}
@@ -112,18 +112,18 @@ export default async function OrdersPage() {
                       {items[0]?.product_name ?? "Order"}
                       {items.length > 1 ? ` + ${items.length - 1} more` : ""}
                     </p>
-                    <p className="mt-1 text-[11px] text-navy/40">
+                    <p className="mt-1 text-[11px] text-ink">
                       {itemCount} {itemCount === 1 ? "item" : "items"} ·{" "}
                       {formatINR(order.confirmed_total ?? order.total)}
                     </p>
-                    <p className="mt-1 text-[11px] text-navy/40">
+                    <p className="mt-1 text-[11px] text-ink">
                       Payment:{" "}
                       <span className="capitalize">{order.payment_status}</span>
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-4 flex justify-end border-t border-navy/5 pt-3">
+                <div className="mt-4 flex justify-end border-t border-line pt-3">
                   <Link
                     href={`/orders/${order.id}`}
                     className={buttonClass({

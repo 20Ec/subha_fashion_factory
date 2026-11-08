@@ -1,11 +1,35 @@
 import Link from "next/link";
-import { Instagram } from "lucide-react";
+import { Instagram, Youtube } from "lucide-react";
 import { SITE } from "@/lib/config";
 import { FlowerMark, Logo } from "@/components/ui/logo";
+import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
+
+function SocialLink({
+  href,
+  label,
+  children,
+}: {
+  href: string;
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={label}
+      title={label}
+      className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/70 transition hover:-translate-y-0.5 hover:border-gold hover:bg-white/5 hover:text-gold focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-gold/40"
+    >
+      {children}
+    </Link>
+  );
+}
 
 export function SiteFooter() {
   return (
-    <footer className="mt-20 bg-navy text-white">
+    <footer className="mt-20 border-t border-gold/30 bg-navy text-white">
       <div className="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2 lg:col-span-1">
           <Logo light />
@@ -13,19 +37,29 @@ export function SiteFooter() {
             Handmade and artificial flowers, thoughtfully crafted for
             celebrations, gifts and everyday joy.
           </p>
-          <Link
-            href={SITE.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-xs font-medium text-white/80 transition hover:border-pink hover:text-pink"
-          >
-            <Instagram className="h-4 w-4" />
-            Follow us on Instagram
-          </Link>
+          <div className="mt-5">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
+              Follow us
+            </p>
+            <div className="mt-3 flex items-center gap-2">
+              <SocialLink href={SITE.instagram} label="Instagram">
+                <Instagram className="h-4 w-4" />
+              </SocialLink>
+              <SocialLink href={SITE.youtube} label="YouTube">
+                <Youtube className="h-[18px] w-[18px]" />
+              </SocialLink>
+              <SocialLink
+                href={SITE.whatsapp.url}
+                label={`WhatsApp ${SITE.whatsapp.display}`}
+              >
+                <WhatsAppIcon className="h-4 w-4" />
+              </SocialLink>
+            </div>
+          </div>
         </div>
 
         <div>
-          <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-pink">
+          <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-gold">
             <FlowerMark className="h-3.5 w-3.5" />
             Shop
           </h3>
@@ -43,7 +77,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-pink">
+          <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
             Account
           </h3>
           <div className="mt-4 flex flex-col gap-2.5 text-sm text-white/60">
@@ -60,7 +94,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-pink">
+          <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
             Good to know
           </h3>
           <div className="mt-4 space-y-2.5 text-sm leading-relaxed text-white/60">
@@ -77,7 +111,7 @@ export function SiteFooter() {
           </p>
           <p className="flex items-center gap-1.5">
             Handcrafted with
-            <FlowerMark className="h-3 w-3 text-pink" />
+            <FlowerMark className="h-3 w-3 text-gold" />
             in India
           </p>
         </div>

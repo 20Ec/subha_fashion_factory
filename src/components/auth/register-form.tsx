@@ -40,7 +40,7 @@ export function RegisterForm({ next }: { next?: string | null }) {
       <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
         Create your account
       </h1>
-      <p className="mt-1.5 text-sm text-navy/50">
+      <p className="mt-1.5 text-sm text-ink">
         Save your addresses, track orders and keep your favourite blooms close.
       </p>
 
@@ -99,7 +99,7 @@ export function RegisterForm({ next }: { next?: string | null }) {
             <button
               type="button"
               onClick={() => setShowPassword((value) => !value)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-navy/35 transition hover:text-navy"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-ink transition hover:text-navy"
               aria-label={showPassword ? "Hide password" : "Show password"}
             >
               {showPassword ? (
@@ -133,7 +133,7 @@ export function RegisterForm({ next }: { next?: string | null }) {
         </Button>
       </form>
 
-      <p className="mt-6 text-center text-sm text-navy/50">
+      <p className="mt-6 text-center text-sm text-ink">
         Already have an account?{" "}
         <Link
           href={next ? `/login?next=${encodeURIComponent(next)}` : "/login"}

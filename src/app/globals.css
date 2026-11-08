@@ -3,18 +3,35 @@
 @theme {
   --font-sans: var(--font-poppins), ui-sans-serif, system-ui, -apple-system, sans-serif;
 
-  --color-navy: #0b1b3a;
-  --color-navy-soft: #293b63;
-  --color-blue: #3b5bdb;
-  --color-blue-dark: #2f49b8;
-  --color-pink: #f29ab8;
-  --color-pink-soft: #ffe4ee;
-  --color-blush: #fff7fa;
-  --color-cream: #fffdfd;
-  --color-gold: #c9a227;
+  /* ----------------------------------------------------------------
+     Floral Bright palette (trial)
+     SoftPink   page background            #FFF0F5
+     HotPink    primary buttons            #E91E8C
+     Purple     headings, dark surfaces    #7B2D8E
+     Orange     highlights                 #FF8A24
+     Leaf       accents                    #65A844
+     Yellow     special highlights         #FFD34E
+     White      product cards              #FFFFFF
+     Plum       body text                  #40243D
+     ---------------------------------------------------------------- */
+  --color-navy: #7b2d8e;
+  --color-navy-soft: #8f3aa3;
+  --color-blue: #c7146f; /* legacy alias → deep hot pink */
+  --color-blue-dark: #a30f5c;
+  --color-pink: #e91e8c;
+  --color-deep-rose: #c7146f;
+  --color-pink-soft: #ffe3ef;
+  --color-blush: #fff0f5;
+  --color-cream: #ffffff;
+  --color-gold: #ffd34e;
+  --color-highlight: #ff8a24;
+  --color-leaf: #65a844;
+  --color-plum: #40243d;
+  --color-ink: #40243d;
+  --color-line: #f3d5e4;
 
-  --shadow-soft: 0 18px 50px -24px rgba(11, 27, 58, 0.24);
-  --shadow-card: 0 10px 30px -20px rgba(11, 27, 58, 0.35);
+  --shadow-soft: 0 18px 50px -24px rgba(123, 45, 142, 0.18);
+  --shadow-card: 0 10px 30px -20px rgba(123, 45, 142, 0.26);
 
   --animate-fade-up: fade-up 0.6s ease-out both;
   --animate-pop: pop 0.35s ease-out both;
@@ -49,12 +66,21 @@
 
   body {
     background-color: var(--color-blush);
-    color: var(--color-navy);
+    color: var(--color-ink);
     -webkit-font-smoothing: antialiased;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-navy);
+  }
+
   ::selection {
-    background-color: #ffd1e2;
+    background-color: var(--color-pink-soft);
     color: var(--color-navy);
   }
 
@@ -96,7 +122,7 @@
 
   .card-surface {
     background-color: #ffffff;
-    border: 1px solid rgba(11, 27, 58, 0.07);
+    border: 1px solid var(--color-line);
     border-radius: 1.5rem;
     box-shadow: var(--shadow-card);
   }

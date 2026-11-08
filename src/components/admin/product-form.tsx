@@ -159,20 +159,20 @@ export function ProductForm({
     <div>
       <Link
         href="/admin/products"
-        className="inline-flex items-center gap-1 text-xs font-medium text-navy/45 transition hover:text-navy"
+        className="inline-flex items-center gap-1 text-xs font-medium text-ink transition hover:text-navy"
       >
         <ChevronLeft className="h-3.5 w-3.5" />
         All products
       </Link>
 
       <div className="mt-3">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-pink">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-deep-rose">
           Catalog
         </p>
         <h1 className="mt-1 text-2xl font-semibold tracking-tight sm:text-3xl">
           {product ? "Edit product" : "Add product"}
         </h1>
-        <p className="mt-1 text-sm text-navy/45">
+        <p className="mt-1 text-sm text-ink">
           Fill in the details your customers will see on the storefront.
         </p>
       </div>
@@ -185,7 +185,7 @@ export function ProductForm({
             </div>
           )}
 
-          <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-sm">
+          <section className="rounded-2xl border border-line bg-white p-5 shadow-sm">
             <h2 className="text-sm font-semibold">Basic details</h2>
             <div className="mt-4 space-y-4">
               <div>
@@ -237,15 +237,15 @@ export function ProductForm({
             </div>
           </section>
 
-          <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-sm">
+          <section className="rounded-2xl border border-line bg-white p-5 shadow-sm">
             <div className="flex items-start justify-between gap-3">
               <div>
                 <h2 className="text-sm font-semibold">Images</h2>
-                <p className="mt-0.5 text-xs text-navy/45">
+                <p className="mt-0.5 text-xs text-ink">
                   Add as many photos as you like. The first is the cover.
                 </p>
               </div>
-              <span className="rounded-full bg-blush px-2.5 py-1 text-[10px] font-medium text-navy/50">
+              <span className="rounded-full bg-blush px-2.5 py-1 text-[10px] font-medium text-ink">
                 {values.images.length} added
               </span>
             </div>
@@ -258,11 +258,11 @@ export function ProductForm({
             </div>
           </section>
 
-          <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-sm">
+          <section className="rounded-2xl border border-line bg-white p-5 shadow-sm">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
                 <h2 className="text-sm font-semibold">Pricing options</h2>
-                <p className="mt-0.5 text-xs text-navy/45">
+                <p className="mt-0.5 text-xs text-ink">
                   A product can be sold by inches, pieces, size — or all three at
                   once.
                 </p>
@@ -283,7 +283,7 @@ export function ProductForm({
                 {activeTypes.map((type) => (
                   <span
                     key={type}
-                    className="rounded-full bg-pink-soft px-2.5 py-1 text-[10px] font-medium capitalize text-navy/60"
+                    className="rounded-full bg-pink-soft px-2.5 py-1 text-[10px] font-medium capitalize text-navy/70"
                   >
                     {type} ·{" "}
                     {values.options.filter((row) => row.pricing_type === type).length}
@@ -296,7 +296,7 @@ export function ProductForm({
               {values.options.map((row, index) => (
                 <div
                   key={row.key}
-                  className="grid gap-2 rounded-xl border border-navy/8 bg-blush/40 p-2.5 sm:grid-cols-[20px_110px_1fr_110px_36px] sm:items-center"
+                  className="grid gap-2 rounded-xl border border-line bg-blush/40 p-2.5 sm:grid-cols-[20px_110px_1fr_110px_36px] sm:items-center"
                 >
                   <span className="hidden items-center justify-center text-navy/25 sm:flex">
                     <GripVertical className="h-4 w-4" />
@@ -356,7 +356,7 @@ export function ProductForm({
                         values.options.filter((item) => item.key !== row.key)
                       )
                     }
-                    className="grid h-9 w-9 place-items-center justify-self-end rounded-lg text-navy/35 transition hover:bg-rose-50 hover:text-rose-600"
+                    className="grid h-9 w-9 place-items-center justify-self-end rounded-lg text-ink transition hover:bg-rose-50 hover:text-rose-600"
                     aria-label="Remove option"
                   >
                     <Trash2 className="h-4 w-4" />
@@ -365,7 +365,7 @@ export function ProductForm({
               ))}
 
               {values.options.length === 0 && (
-                <div className="rounded-xl border border-dashed border-navy/15 px-4 py-8 text-center text-xs text-navy/40">
+                <div className="rounded-xl border border-dashed border-line px-4 py-8 text-center text-xs text-ink">
                   No pricing options yet. Add at least one so customers can buy
                   this product.
                 </div>
@@ -375,7 +375,7 @@ export function ProductForm({
         </div>
 
         <aside className="space-y-5 lg:sticky lg:top-24">
-          <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-sm">
+          <section className="rounded-2xl border border-line bg-white p-5 shadow-sm">
             <h2 className="text-sm font-semibold">Visibility</h2>
             <div className="mt-3 space-y-3">
               <label className="flex items-start gap-2.5 text-sm text-navy/70">
@@ -387,7 +387,7 @@ export function ProductForm({
                 />
                 <span>
                   Active
-                  <span className="mt-0.5 block text-[11px] text-navy/40">
+                  <span className="mt-0.5 block text-[11px] text-ink">
                     Show this product on the storefront.
                   </span>
                 </span>
@@ -402,7 +402,7 @@ export function ProductForm({
                 />
                 <span>
                   Featured
-                  <span className="mt-0.5 block text-[11px] text-navy/40">
+                  <span className="mt-0.5 block text-[11px] text-ink">
                     Prefer this product on the home page.
                   </span>
                 </span>
@@ -410,9 +410,9 @@ export function ProductForm({
             </div>
           </section>
 
-          <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-sm">
+          <section className="rounded-2xl border border-line bg-white p-5 shadow-sm">
             <h2 className="text-sm font-semibold">Ready to publish?</h2>
-            <p className="mt-1 text-[11px] leading-relaxed text-navy/45">
+            <p className="mt-1 text-[11px] leading-relaxed text-ink">
               Saving updates the storefront immediately. The cheapest active option
               is used as the &ldquo;from&rdquo; price.
             </p>
@@ -435,7 +435,7 @@ export function ProductForm({
             <Link
               href={`/product/${product.slug}`}
               target="_blank"
-              className="block rounded-2xl border border-navy/5 bg-white p-4 text-center text-xs font-medium text-blue transition hover:border-blue/30"
+              className="block rounded-2xl border border-line bg-white p-4 text-center text-xs font-medium text-blue transition hover:border-blue/30"
             >
               Preview on storefront ↗
             </Link>

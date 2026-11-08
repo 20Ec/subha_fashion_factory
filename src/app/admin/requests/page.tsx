@@ -74,18 +74,18 @@ export default async function AdminRequestsPage({
   return (
     <div>
       <div>
-        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-pink">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-deep-rose">
           Customer care
         </p>
         <h1 className="mt-1 text-2xl font-semibold tracking-tight sm:text-3xl">
           Requests
         </h1>
-        <p className="mt-1 text-sm text-navy/45">
+        <p className="mt-1 text-sm text-ink">
           Review cancellation, return and replacement requests from customers.
         </p>
       </div>
 
-      <div className="mt-5 flex flex-col gap-2 rounded-2xl border border-navy/5 bg-white p-3 shadow-sm">
+      <div className="mt-5 flex flex-col gap-2 rounded-2xl border border-line bg-white p-3 shadow-sm">
         <div className="hide-scrollbar flex gap-1.5 overflow-x-auto">
           {STATUS_FILTERS.map((option) => (
             <Link
@@ -101,7 +101,7 @@ export default async function AdminRequestsPage({
             </Link>
           ))}
         </div>
-        <div className="hide-scrollbar flex gap-1.5 overflow-x-auto border-t border-navy/5 pt-2">
+        <div className="hide-scrollbar flex gap-1.5 overflow-x-auto border-t border-line pt-2">
           {TYPE_FILTERS.map((option) => (
             <Link
               key={option}
@@ -131,7 +131,7 @@ export default async function AdminRequestsPage({
           {requests.map((request) => (
             <article
               key={request.id}
-              className="rounded-2xl border border-navy/5 bg-white p-4 shadow-sm sm:p-5"
+              className="rounded-2xl border border-line bg-white p-4 shadow-sm sm:p-5"
             >
               <div className="flex flex-wrap items-start justify-between gap-2">
                 <div className="flex flex-wrap items-center gap-2">
@@ -147,7 +147,7 @@ export default async function AdminRequestsPage({
                   />
                   <StatusBadge status={request.status} />
                   {request.orders?.status && (
-                    <span className="text-[10px] text-navy/35">
+                    <span className="text-[10px] text-ink">
                       Order status:{" "}
                       <span className="capitalize">{request.orders.status}</span>
                     </span>
@@ -159,7 +159,7 @@ export default async function AdminRequestsPage({
                     />
                   )}
                 </div>
-                <span className="text-[10px] text-navy/35">
+                <span className="text-[10px] text-ink">
                   {formatDate(request.created_at, true)}
                 </span>
               </div>
@@ -173,15 +173,15 @@ export default async function AdminRequestsPage({
                     >
                       {request.orders.order_number}
                     </Link>
-                    <span className="text-navy/55">
+                    <span className="text-ink">
                       {request.orders.customer_name}
                     </span>
-                    <span className="text-navy/35">
+                    <span className="text-ink">
                       {request.orders.customer_phone}
                     </span>
                   </>
                 ) : (
-                  <span className="text-navy/40">Order unavailable</span>
+                  <span className="text-ink">Order unavailable</span>
                 )}
               </div>
 
@@ -189,7 +189,7 @@ export default async function AdminRequestsPage({
                 {request.reason}
               </p>
               {request.description && (
-                <p className="mt-1 text-xs leading-relaxed text-navy/50">
+                <p className="mt-1 text-xs leading-relaxed text-ink">
                   {request.description}
                 </p>
               )}
@@ -208,7 +208,7 @@ export default async function AdminRequestsPage({
               )}
 
               {request.admin_note && (
-                <p className="mt-2 rounded-lg bg-blush px-3 py-2 text-[11px] text-navy/55">
+                <p className="mt-2 rounded-lg bg-blush px-3 py-2 text-[11px] text-ink">
                   <span className="font-medium">Note: </span>
                   {request.admin_note}
                 </p>

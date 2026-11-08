@@ -95,7 +95,7 @@ export function ProductPurchase({
           {selected ? formatINR(selected.price) : "Price on request"}
         </p>
         {selected && (
-          <p className="pb-1 text-xs text-navy/45">
+          <p className="pb-1 text-xs text-ink">
             for {selected.label} · {selected.pricing_type}
           </p>
         )}
@@ -117,7 +117,7 @@ export function ProductPurchase({
                     "rounded-full border px-4 py-2 text-xs font-medium capitalize transition",
                     activeType === type
                       ? "border-navy bg-navy text-white"
-                      : "border-navy/10 bg-white text-navy/60 hover:border-navy/30"
+                      : "border-line bg-white text-navy/70 hover:border-navy/30"
                   )}
                 >
                   By {type}
@@ -126,7 +126,7 @@ export function ProductPurchase({
             </div>
           )}
 
-          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-navy/40">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink">
             Choose {activeType}
           </p>
           <div className="mt-2.5 grid grid-cols-2 gap-2 sm:grid-cols-3">
@@ -139,13 +139,13 @@ export function ProductPurchase({
                   "rounded-xl border px-3 py-2.5 text-left transition",
                   selectedId === option.id
                     ? "border-blue bg-blue/5 ring-1 ring-blue"
-                    : "border-navy/10 bg-white hover:border-navy/25"
+                    : "border-line bg-white hover:border-navy/25"
                 )}
               >
                 <span className="block text-xs font-medium text-navy">
                   {option.label}
                 </span>
-                <span className="mt-0.5 block text-[11px] text-navy/45">
+                <span className="mt-0.5 block text-[11px] text-ink">
                   {formatINR(option.price)}
                 </span>
               </button>
@@ -155,11 +155,11 @@ export function ProductPurchase({
       )}
 
       <div className="mt-6 flex items-center gap-4">
-        <div className="flex items-center rounded-full border border-navy/10 bg-white">
+        <div className="flex items-center rounded-full border border-line bg-white">
           <button
             type="button"
             onClick={() => setQuantity((value) => Math.max(1, value - 1))}
-            className="grid h-10 w-10 place-items-center rounded-full text-navy/60 transition hover:bg-blush disabled:opacity-40"
+            className="grid h-10 w-10 place-items-center rounded-full text-navy/70 transition hover:bg-blush disabled:opacity-40"
             disabled={quantity <= 1}
             aria-label="Decrease quantity"
           >
@@ -169,14 +169,14 @@ export function ProductPurchase({
           <button
             type="button"
             onClick={() => setQuantity((value) => Math.min(99, value + 1))}
-            className="grid h-10 w-10 place-items-center rounded-full text-navy/60 transition hover:bg-blush disabled:opacity-40"
+            className="grid h-10 w-10 place-items-center rounded-full text-navy/70 transition hover:bg-blush disabled:opacity-40"
             disabled={quantity >= 99}
             aria-label="Increase quantity"
           >
             <Plus className="h-3.5 w-3.5" />
           </button>
         </div>
-        <p className="text-xs text-navy/40">Maximum 99 per item</p>
+        <p className="text-xs text-ink">Maximum 99 per item</p>
       </div>
 
       <div className="mt-5 flex flex-col gap-2.5">
@@ -204,17 +204,17 @@ export function ProductPurchase({
         <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white text-blue">
           <Phone className="h-4 w-4" />
         </span>
-        <p className="text-xs leading-relaxed text-navy/55">
+        <p className="text-xs leading-relaxed text-ink">
           Our team will call you after you order to confirm the details and
           final pricing before your flowers are made.
         </p>
       </div>
 
       {/* Mobile sticky action bar */}
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-navy/5 bg-white/95 px-4 py-3 backdrop-blur lg:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-white/95 px-4 py-3 backdrop-blur lg:hidden">
         <div className="mx-auto flex max-w-xl items-center gap-3">
           <div className="min-w-0 flex-1">
-            <p className="truncate text-[11px] text-navy/45">
+            <p className="truncate text-[11px] text-ink">
               {selected?.label ?? "Choose an option"}
             </p>
             <p className="text-base font-semibold">

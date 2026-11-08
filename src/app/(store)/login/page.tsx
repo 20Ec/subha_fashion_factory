@@ -15,7 +15,7 @@ export default async function LoginPage({
 
   return (
     <div className="container-page flex items-center justify-center py-8 sm:py-14">
-      <div className="w-full max-w-4xl overflow-hidden rounded-3xl border border-navy/5 bg-white shadow-soft lg:grid lg:grid-cols-[1.05fr_0.95fr]">
+      <div className="w-full max-w-4xl overflow-hidden rounded-3xl border border-line bg-white shadow-soft lg:grid lg:grid-cols-[1.05fr_0.95fr]">
         <div className="p-6 sm:p-10">
           <LoginForm next={next} />
         </div>

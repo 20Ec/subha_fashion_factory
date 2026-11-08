@@ -61,13 +61,13 @@ export default async function ShopPage({
   return (
     <div className="container-page py-8 sm:py-12">
       <div className="max-w-2xl">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-pink">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-deep-rose">
           The collection
         </p>
         <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">
           Flowers, made to last
         </h1>
-        <p className="mt-2 text-sm leading-relaxed text-navy/50 sm:text-base">
+        <p className="mt-2 text-sm leading-relaxed text-ink sm:text-base">
           Handmade and artificial arrangements for every corner, occasion and
           person you love. Choose your size, quantity or length on each piece.
         </p>

@@ -66,7 +66,7 @@ export default async function AdminOrderDetailPage({
     <div>
       <Link
         href="/admin/orders"
-        className="inline-flex items-center gap-1 text-xs font-medium text-navy/45 transition hover:text-navy"
+        className="inline-flex items-center gap-1 text-xs font-medium text-ink transition hover:text-navy"
       >
         <ChevronLeft className="h-3.5 w-3.5" />
         All orders
@@ -74,13 +74,13 @@ export default async function AdminOrderDetailPage({
 
       <div className="mt-3 flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-pink">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-deep-rose">
             Order
           </p>
           <h1 className="mt-1 text-2xl font-semibold tracking-tight sm:text-3xl">
             {order.order_number}
           </h1>
-          <p className="mt-1 text-xs text-navy/45">
+          <p className="mt-1 text-xs text-ink">
             Placed {formatDate(order.placed_at, true)}
           </p>
         </div>
@@ -92,32 +92,32 @@ export default async function AdminOrderDetailPage({
 
       <div className="mt-6 grid gap-5 lg:grid-cols-[1fr_380px] lg:items-start">
         <div className="space-y-5">
-          <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-sm">
+          <section className="rounded-2xl border border-line bg-white p-5 shadow-sm">
             <h2 className="flex items-center gap-2 text-sm font-semibold">
               <UserRound className="h-4 w-4 text-blue" />
               Customer
             </h2>
-            <div className="mt-3 grid gap-2 text-xs text-navy/60 sm:grid-cols-2">
+            <div className="mt-3 grid gap-2 text-xs text-navy/70 sm:grid-cols-2">
               <p className="flex items-center gap-2">
-                <UserRound className="h-3.5 w-3.5 text-navy/35" />
+                <UserRound className="h-3.5 w-3.5 text-ink" />
                 {order.customer_name || "—"}
               </p>
               <p className="flex items-center gap-2">
-                <Phone className="h-3.5 w-3.5 text-navy/35" />
+                <Phone className="h-3.5 w-3.5 text-ink" />
                 {order.customer_phone || "—"}
               </p>
               <p className="flex items-center gap-2 sm:col-span-2">
-                <Mail className="h-3.5 w-3.5 text-navy/35" />
+                <Mail className="h-3.5 w-3.5 text-ink" />
                 {order.customer_email || "—"}
               </p>
             </div>
 
             <div className="mt-4 rounded-xl bg-blush/70 p-3.5">
-              <h3 className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-navy/40">
+              <h3 className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-ink">
                 <MapPin className="h-3 w-3" />
                 Delivery address
               </h3>
-              <p className="mt-2 text-xs leading-relaxed text-navy/60">
+              <p className="mt-2 text-xs leading-relaxed text-navy/70">
                 <span className="font-medium text-navy">{address.name}</span>
                 <br />
                 {address.line1}
@@ -165,10 +165,10 @@ export default async function AdminOrderDetailPage({
             )}
           </section>
 
-          <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-sm">
+          <section className="rounded-2xl border border-line bg-white p-5 shadow-sm">
             <div className="flex items-center justify-between">
               <h2 className="text-sm font-semibold">Items</h2>
-              <span className="text-[10px] text-navy/35">
+              <span className="text-[10px] text-ink">
                 {items.reduce((sum, item) => sum + item.quantity, 0)} total
               </span>
             </div>
@@ -185,7 +185,7 @@ export default async function AdminOrderDetailPage({
                         className="object-cover"
                       />
                     ) : (
-                      <span className="grid h-full place-items-center text-pink">
+                      <span className="grid h-full place-items-center text-deep-rose">
                         <FlowerMark className="h-4 w-4" />
                       </span>
                     )}
@@ -194,7 +194,7 @@ export default async function AdminOrderDetailPage({
                     <p className="truncate text-xs font-medium">
                       {item.product_name}
                     </p>
-                    <p className="truncate text-[10px] capitalize text-navy/45">
+                    <p className="truncate text-[10px] capitalize text-ink">
                       {item.pricing_type ? `${item.pricing_type}: ` : ""}
                       {item.option_label} · {formatINR(item.unit_price)} ×{" "}
                       {item.quantity}
@@ -207,14 +207,14 @@ export default async function AdminOrderDetailPage({
               ))}
             </div>
 
-            <div className="mt-4 space-y-2 border-t border-navy/5 pt-3 text-xs">
-              <div className="flex justify-between text-navy/55">
+            <div className="mt-4 space-y-2 border-t border-line pt-3 text-xs">
+              <div className="flex justify-between text-ink">
                 <span>Items subtotal</span>
                 <span>{formatINR(order.subtotal)}</span>
               </div>
-              <div className="flex justify-between text-navy/55">
+              <div className="flex justify-between text-ink">
                 <span>Delivery</span>
-                <span className="text-[10px] text-navy/35">Confirmed on call</span>
+                <span className="text-[10px] text-ink">Confirmed on call</span>
               </div>
               <div className="flex justify-between font-medium">
                 <span>Order total</span>
@@ -231,13 +231,13 @@ export default async function AdminOrderDetailPage({
             </div>
           </section>
 
-          <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-sm">
+          <section className="rounded-2xl border border-line bg-white p-5 shadow-sm">
             <h2 className="flex items-center gap-2 text-sm font-semibold">
               <RotateCcw className="h-4 w-4 text-blue" />
               Requests
             </h2>
             {requests.length === 0 ? (
-              <p className="mt-2 text-xs text-navy/40">
+              <p className="mt-2 text-xs text-ink">
                 No return, replacement or cancellation requests for this order.
               </p>
             ) : (
@@ -245,7 +245,7 @@ export default async function AdminOrderDetailPage({
                 {requests.map((request) => (
                   <div
                     key={request.id}
-                    className="rounded-xl border border-navy/5 bg-blush/40 p-3.5"
+                    className="rounded-xl border border-line bg-blush/40 p-3.5"
                   >
                     <div className="flex flex-wrap items-center gap-2">
                       <StatusBadge
@@ -259,7 +259,7 @@ export default async function AdminOrderDetailPage({
                         }
                       />
                       <StatusBadge status={request.status} />
-                      <span className="ml-auto text-[10px] text-navy/35">
+                      <span className="ml-auto text-[10px] text-ink">
                         {formatDate(request.created_at, true)}
                       </span>
                     </div>
@@ -267,12 +267,12 @@ export default async function AdminOrderDetailPage({
                       {request.reason}
                     </p>
                     {request.description && (
-                      <p className="mt-1 text-[11px] leading-relaxed text-navy/50">
+                      <p className="mt-1 text-[11px] leading-relaxed text-ink">
                         {request.description}
                       </p>
                     )}
                     {request.admin_note && (
-                      <p className="mt-2 rounded-lg bg-white px-3 py-2 text-[11px] text-navy/55">
+                      <p className="mt-2 rounded-lg bg-white px-3 py-2 text-[11px] text-ink">
                         <span className="font-medium">Admin note: </span>
                         {request.admin_note}
                       </p>
@@ -286,9 +286,9 @@ export default async function AdminOrderDetailPage({
         </div>
 
         <div className="space-y-5">
-          <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-sm">
+          <section className="rounded-2xl border border-line bg-white p-5 shadow-sm">
             <h2 className="text-sm font-semibold">Update order</h2>
-            <p className="mt-0.5 text-[11px] text-navy/45">
+            <p className="mt-0.5 text-[11px] text-ink">
               Confirm the final price after speaking with the customer, then move
               the order forward.
             </p>
@@ -297,11 +297,11 @@ export default async function AdminOrderDetailPage({
             </div>
           </section>
 
-          <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-sm">
+          <section className="rounded-2xl border border-line bg-white p-5 shadow-sm">
             <h2 className="text-sm font-semibold">Status history</h2>
             <div className="mt-4">
               {history.length === 0 ? (
-                <p className="text-xs text-navy/40">No history yet.</p>
+                <p className="text-xs text-ink">No history yet.</p>
               ) : (
                 history.map((entry, index) => (
                   <div key={entry.id} className="relative flex gap-3 pb-4 last:pb-0">
@@ -319,11 +319,11 @@ export default async function AdminOrderDetailPage({
                       <p className="text-xs font-medium capitalize text-navy/75">
                         {entry.status}
                       </p>
-                      <p className="mt-0.5 text-[10px] text-navy/35">
+                      <p className="mt-0.5 text-[10px] text-ink">
                         {formatDate(entry.created_at, true)}
                       </p>
                       {entry.note && (
-                        <p className="mt-0.5 text-[11px] text-navy/45">
+                        <p className="mt-0.5 text-[11px] text-ink">
                           {entry.note}
                         </p>
                       )}

@@ -131,13 +131,13 @@ export default async function AdminDashboardPage() {
     <div>
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-pink">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-deep-rose">
             Overview
           </p>
           <h1 className="mt-1 text-2xl font-semibold tracking-tight sm:text-3xl">
             Welcome back, {admin.fullName.split(" ")[0] || "Admin"}
           </h1>
-          <p className="mt-1 text-sm text-navy/45">
+          <p className="mt-1 text-sm text-ink">
             Here&apos;s what&apos;s happening at the studio today.
           </p>
         </div>
@@ -177,7 +177,7 @@ export default async function AdminDashboardPage() {
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="rounded-2xl border border-navy/5 bg-white p-4 shadow-sm"
+            className="rounded-2xl border border-line bg-white p-4 shadow-sm"
           >
             <span
               className={`grid h-9 w-9 place-items-center rounded-xl ${stat.tone}`}
@@ -187,14 +187,14 @@ export default async function AdminDashboardPage() {
             <p className="mt-3 text-xl font-semibold tracking-tight sm:text-2xl">
               {stat.value}
             </p>
-            <p className="mt-0.5 text-[11px] text-navy/45">{stat.label}</p>
+            <p className="mt-0.5 text-[11px] text-ink">{stat.label}</p>
           </div>
         ))}
       </div>
 
       <div className="mt-6 grid gap-5 lg:grid-cols-[1.5fr_1fr] lg:items-start">
-        <section className="rounded-2xl border border-navy/5 bg-white shadow-sm">
-          <div className="flex items-center justify-between border-b border-navy/5 px-4 py-3.5 sm:px-5">
+        <section className="rounded-2xl border border-line bg-white shadow-sm">
+          <div className="flex items-center justify-between border-b border-line px-4 py-3.5 sm:px-5">
             <h2 className="text-sm font-semibold">Recent orders</h2>
             <Link
               href="/admin/orders"
@@ -215,7 +215,7 @@ export default async function AdminDashboardPage() {
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full min-w-[540px] text-left text-sm">
-                <thead className="bg-blush/60 text-[10px] uppercase tracking-wider text-navy/40">
+                <thead className="bg-blush/60 text-[10px] uppercase tracking-wider text-ink">
                   <tr>
                     <th className="px-5 py-2.5 font-semibold">Order</th>
                     <th className="px-3 py-2.5 font-semibold">Customer</th>
@@ -239,7 +239,7 @@ export default async function AdminDashboardPage() {
                         <p className="max-w-[150px] truncate text-xs">
                           {order.customer_name}
                         </p>
-                        <p className="text-[10px] text-navy/35">
+                        <p className="text-[10px] text-ink">
                           {order.customer_phone}
                         </p>
                       </td>
@@ -249,7 +249,7 @@ export default async function AdminDashboardPage() {
                       <td className="px-3 py-3">
                         <StatusBadge status={order.status} />
                       </td>
-                      <td className="px-5 py-3 text-right text-[10px] text-navy/40">
+                      <td className="px-5 py-3 text-right text-[10px] text-ink">
                         {formatDate(order.placed_at)}
                       </td>
                     </tr>
@@ -261,10 +261,10 @@ export default async function AdminDashboardPage() {
         </section>
 
         <div className="space-y-5">
-          <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-sm">
+          <section className="rounded-2xl border border-line bg-white p-5 shadow-sm">
             <h2 className="text-sm font-semibold">Orders by status</h2>
             {totalOrders === 0 ? (
-              <p className="mt-3 text-xs text-navy/40">
+              <p className="mt-3 text-xs text-ink">
                 Status breakdown will appear once orders come in.
               </p>
             ) : (
@@ -277,7 +277,7 @@ export default async function AdminDashboardPage() {
                   return (
                     <div key={status}>
                       <div className="flex items-center justify-between text-[11px]">
-                        <span className="capitalize text-navy/55">{status}</span>
+                        <span className="capitalize text-ink">{status}</span>
                         <span className="font-medium text-navy/70">{count}</span>
                       </div>
                       <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-blush">
@@ -293,7 +293,7 @@ export default async function AdminDashboardPage() {
             )}
           </section>
 
-          <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-sm">
+          <section className="rounded-2xl border border-line bg-white p-5 shadow-sm">
             <div className="flex items-center justify-between">
               <h2 className="text-sm font-semibold">Pending requests</h2>
               <Link
@@ -305,7 +305,7 @@ export default async function AdminDashboardPage() {
             </div>
 
             {(pendingRequests ?? []).length === 0 ? (
-              <p className="mt-3 text-xs text-navy/40">
+              <p className="mt-3 text-xs text-ink">
                 Nothing waiting — you&apos;re all caught up.
               </p>
             ) : (
@@ -318,17 +318,17 @@ export default async function AdminDashboardPage() {
                     <Link
                       key={request.id}
                       href="/admin/requests"
-                      className="block rounded-xl border border-navy/5 p-3 transition hover:border-navy/15"
+                      className="block rounded-xl border border-line p-3 transition hover:border-line"
                     >
                       <div className="flex items-center justify-between gap-2">
                         <span className="text-xs font-medium capitalize">
                           {request.type} request
                         </span>
-                        <span className="text-[10px] text-navy/35">
+                        <span className="text-[10px] text-ink">
                           {formatDate(request.created_at)}
                         </span>
                       </div>
-                      <p className="mt-1 text-[11px] text-navy/45">
+                      <p className="mt-1 text-[11px] text-ink">
                         {order?.order_number ?? "Order"} ·{" "}
                         {order?.customer_name ?? "Customer"}
                       </p>
@@ -340,7 +340,7 @@ export default async function AdminDashboardPage() {
           </section>
 
           <div className="flex items-center justify-center gap-2 rounded-2xl bg-white p-4 text-[10px] text-navy/30">
-            <FlowerMark className="h-3.5 w-3.5 text-pink" />
+            <FlowerMark className="h-3.5 w-3.5 text-deep-rose" />
             Subha Fashion Factory admin
           </div>
         </div>

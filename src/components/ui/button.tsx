@@ -7,12 +7,12 @@ type Size = "sm" | "md" | "lg" | "icon";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-blue text-white shadow-[0_12px_24px_-14px_rgba(59,91,219,0.9)] hover:bg-blue-dark",
+    "bg-pink text-white shadow-[0_12px_24px_-14px_rgba(233,30,140,0.5)] hover:bg-deep-rose hover:text-white",
   secondary: "bg-navy text-white hover:bg-navy-soft",
   outline:
-    "border border-navy/15 bg-white text-navy hover:border-blue/40 hover:bg-blush",
+    "border border-line bg-white text-navy hover:border-pink/60 hover:bg-blush",
   ghost: "text-navy hover:bg-pink-soft/70",
-  pink: "bg-pink-soft text-navy hover:bg-pink/40",
+  pink: "bg-pink-soft text-navy hover:bg-pink/30",
   danger: "bg-rose-600 text-white hover:bg-rose-700",
 };
 

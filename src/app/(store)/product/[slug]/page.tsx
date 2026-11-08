@@ -61,7 +61,7 @@ export default async function ProductPage({
 
   return (
     <div className="container-page pb-24 pt-5 sm:pt-8 lg:pb-12">
-      <nav className="flex items-center gap-1.5 overflow-hidden text-xs text-navy/40">
+      <nav className="flex items-center gap-1.5 overflow-hidden text-xs text-ink">
         <Link href="/" className="shrink-0 transition hover:text-navy">
           Home
         </Link>
@@ -81,7 +81,7 @@ export default async function ProductPage({
           </>
         )}
         <ChevronRight className="h-3 w-3 shrink-0" />
-        <span className="truncate text-navy/60">{product.name}</span>
+        <span className="truncate text-navy/70">{product.name}</span>
       </nav>
 
       <div className="mt-5 grid gap-8 lg:grid-cols-2 lg:gap-12">
@@ -97,7 +97,7 @@ export default async function ProductPage({
           {product.category?.name && (
             <Link
               href={`/shop?category=${product.category.slug}`}
-              className="text-[10px] font-semibold uppercase tracking-[0.2em] text-pink hover:text-navy"
+              className="text-[10px] font-semibold uppercase tracking-[0.2em] text-deep-rose hover:text-navy"
             >
               {product.category.name}
             </Link>
@@ -110,7 +110,7 @@ export default async function ProductPage({
             {types.map((type) => (
               <span
                 key={type}
-                className="rounded-full bg-pink-soft px-2.5 py-1 text-[10px] font-medium uppercase tracking-wide text-navy/60"
+                className="rounded-full bg-pink-soft px-2.5 py-1 text-[10px] font-medium uppercase tracking-wide text-navy/70"
               >
                 {PRICING_TYPE_LABEL[type]}
               </span>
@@ -118,7 +118,7 @@ export default async function ProductPage({
           </div>
 
           {product.description && (
-            <p className="mt-4 whitespace-pre-line text-sm leading-relaxed text-navy/55">
+            <p className="mt-4 whitespace-pre-line text-sm leading-relaxed text-ink">
               {product.description}
             </p>
           )}
@@ -133,18 +133,18 @@ export default async function ProductPage({
             />
           </div>
 
-          <div className="mt-7 grid gap-3 border-t border-navy/5 pt-5 sm:grid-cols-3">
+          <div className="mt-7 grid gap-3 border-t border-line pt-5 sm:grid-cols-3">
             <div className="flex items-center gap-2.5">
               <Sparkles className="h-4 w-4 text-blue" />
-              <span className="text-xs text-navy/55">Handcrafted finish</span>
+              <span className="text-xs text-ink">Handcrafted finish</span>
             </div>
             <div className="flex items-center gap-2.5">
               <Palette className="h-4 w-4 text-blue" />
-              <span className="text-xs text-navy/55">Custom colours</span>
+              <span className="text-xs text-ink">Custom colours</span>
             </div>
             <div className="flex items-center gap-2.5">
               <BadgeCheck className="h-4 w-4 text-blue" />
-              <span className="text-xs text-navy/55">Confirmed personally</span>
+              <span className="text-xs text-ink">Confirmed personally</span>
             </div>
           </div>
         </div>
@@ -154,12 +154,12 @@ export default async function ProductPage({
         <section className="mt-16">
           <div className="flex items-end justify-between">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-pink">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-deep-rose">
                 You may also love
               </p>
               <h2 className="mt-1.5 flex items-center gap-2 text-2xl font-semibold tracking-tight">
                 More from the studio
-                <FlowerMark className="h-5 w-5 text-pink" />
+                <FlowerMark className="h-5 w-5 text-deep-rose" />
               </h2>
             </div>
             <Link

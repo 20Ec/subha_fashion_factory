@@ -50,7 +50,7 @@ export function RequestActions({
   }
 
   return (
-    <div className="mt-3 space-y-2 border-t border-navy/5 pt-3">
+    <div className="mt-3 space-y-2 border-t border-line pt-3">
       <Input
         value={note}
         onChange={(event) => setNote(event.target.value)}

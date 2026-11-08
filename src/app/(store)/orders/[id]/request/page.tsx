@@ -77,14 +77,14 @@ export default async function OrderRequestPage({
     <div className="container-page py-8 sm:py-12">
       <Link
         href={`/orders/${order.id}`}
-        className="inline-flex items-center gap-1 text-xs font-medium text-navy/45 transition hover:text-navy"
+        className="inline-flex items-center gap-1 text-xs font-medium text-ink transition hover:text-navy"
       >
         <ChevronLeft className="h-3.5 w-3.5" />
         Back to order
       </Link>
 
       <div className="mt-4">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-pink">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-deep-rose">
           Order {order.order_number}
         </p>
         <h1 className="mt-1.5 text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -153,7 +153,7 @@ export default async function OrderRequestPage({
         </EmptyState>
       ) : (
         <div className="mt-6 grid gap-5 lg:grid-cols-[1fr_340px] lg:items-start">
-          <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-card sm:p-6">
+          <section className="rounded-2xl border border-line bg-white p-5 shadow-card sm:p-6">
             {canReturn && (
               <div className="mb-5 flex gap-2 rounded-xl bg-blush p-1">
                 <Link
@@ -161,7 +161,7 @@ export default async function OrderRequestPage({
                   className={`flex-1 rounded-lg px-3 py-2 text-center text-xs font-medium transition ${
                     type === "return"
                       ? "bg-white text-navy shadow-sm"
-                      : "text-navy/45 hover:text-navy"
+                      : "text-ink hover:text-navy"
                   }`}
                 >
                   Return
@@ -171,7 +171,7 @@ export default async function OrderRequestPage({
                   className={`flex-1 rounded-lg px-3 py-2 text-center text-xs font-medium transition ${
                     type === "replace"
                       ? "bg-white text-navy shadow-sm"
-                      : "text-navy/45 hover:text-navy"
+                      : "text-ink hover:text-navy"
                   }`}
                 >
                   Replacement
@@ -183,7 +183,7 @@ export default async function OrderRequestPage({
 
             <div className="mt-5 flex items-start gap-2.5 rounded-xl bg-blush p-3.5">
               <Info className="mt-0.5 h-4 w-4 shrink-0 text-blue" />
-              <p className="text-[11px] leading-relaxed text-navy/50">
+              <p className="text-[11px] leading-relaxed text-ink">
                 Our team will review your request and contact you on the phone
                 number linked to this order. Approved returns and replacements
                 are arranged personally.
@@ -191,7 +191,7 @@ export default async function OrderRequestPage({
             </div>
           </section>
 
-          <aside className="rounded-2xl border border-navy/5 bg-white p-5 shadow-card">
+          <aside className="rounded-2xl border border-line bg-white p-5 shadow-card">
             <h2 className="text-base font-semibold">Order summary</h2>
             <div className="mt-3 space-y-3">
               {items.map((item) => (
@@ -206,7 +206,7 @@ export default async function OrderRequestPage({
                         className="object-cover"
                       />
                     ) : (
-                      <span className="grid h-full place-items-center text-pink">
+                      <span className="grid h-full place-items-center text-deep-rose">
                         <FlowerMark className="h-4 w-4" />
                       </span>
                     )}
@@ -215,7 +215,7 @@ export default async function OrderRequestPage({
                     <p className="truncate text-xs font-medium">
                       {item.product_name}
                     </p>
-                    <p className="truncate text-[10px] text-navy/45">
+                    <p className="truncate text-[10px] text-ink">
                       {item.option_label} × {item.quantity}
                     </p>
                   </div>
@@ -225,13 +225,13 @@ export default async function OrderRequestPage({
                 </div>
               ))}
             </div>
-            <div className="mt-4 flex items-center justify-between border-t border-navy/5 pt-3">
+            <div className="mt-4 flex items-center justify-between border-t border-line pt-3">
               <span className="text-sm font-medium">Total</span>
               <span className="text-base font-semibold">
                 {formatINR(order.confirmed_total ?? order.total)}
               </span>
             </div>
-            <p className="mt-3 text-[10px] leading-relaxed text-navy/40">
+            <p className="mt-3 text-[10px] leading-relaxed text-ink">
               Return and replacement eligibility applies for {RETURN_WINDOW_DAYS}{" "}
               days after delivery.
             </p>

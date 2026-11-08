@@ -63,7 +63,7 @@ export function DeleteProductButton({
           </div>
         }
       >
-        <p className="text-sm leading-relaxed text-navy/60">
+        <p className="text-sm leading-relaxed text-navy/70">
           <span className="font-medium text-navy">{productName}</span> will be
           removed. Existing orders keep their saved item details.
         </p>

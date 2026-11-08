@@ -82,7 +82,7 @@ export default async function OrderDetailPage({
     <div className="container-page py-8 sm:py-12">
       <Link
         href="/orders"
-        className="inline-flex items-center gap-1 text-xs font-medium text-navy/45 transition hover:text-navy"
+        className="inline-flex items-center gap-1 text-xs font-medium text-ink transition hover:text-navy"
       >
         <ChevronLeft className="h-3.5 w-3.5" />
         All orders
@@ -123,14 +123,14 @@ export default async function OrderDetailPage({
 
       <div className="mt-5 flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-pink">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-deep-rose">
             Order {order.order_number}
           </p>
           <h1 className="mt-1.5 text-2xl font-semibold tracking-tight sm:text-3xl">
             {items[0]?.product_name ?? "Your order"}
             {items.length > 1 ? ` + ${items.length - 1} more` : ""}
           </h1>
-          <p className="mt-1 text-xs text-navy/45">
+          <p className="mt-1 text-xs text-ink">
             Placed {formatDate(order.placed_at, true)}
           </p>
         </div>
@@ -192,7 +192,7 @@ export default async function OrderDetailPage({
         {order.status === "delivered" &&
           !withinReturnWindow &&
           !completedReturnReplace && (
-            <span className="inline-flex h-11 items-center rounded-full bg-blush px-4 text-xs text-navy/45">
+            <span className="inline-flex h-11 items-center rounded-full bg-blush px-4 text-xs text-ink">
               Return window closed
             </span>
           )}
@@ -200,7 +200,7 @@ export default async function OrderDetailPage({
 
       <div className="mt-6 grid gap-5 lg:grid-cols-[1fr_340px] lg:items-start">
         <div className="space-y-5">
-          <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-card">
+          <section className="rounded-2xl border border-line bg-white p-5 shadow-card">
             <h2 className="text-base font-semibold">Items</h2>
             <div className="mt-4 space-y-4">
               {items.map((item) => (
@@ -215,7 +215,7 @@ export default async function OrderDetailPage({
                         className="object-cover"
                       />
                     ) : (
-                      <span className="grid h-full place-items-center text-pink">
+                      <span className="grid h-full place-items-center text-deep-rose">
                         <FlowerMark className="h-5 w-5" />
                       </span>
                     )}
@@ -235,7 +235,7 @@ export default async function OrderDetailPage({
                             {item.product_name}
                           </p>
                         )}
-                        <p className="mt-1 text-[11px] capitalize text-navy/45">
+                        <p className="mt-1 text-[11px] capitalize text-ink">
                           {item.pricing_type ? `${item.pricing_type}: ` : ""}
                           {item.option_label}
                         </p>
@@ -244,7 +244,7 @@ export default async function OrderDetailPage({
                         {formatINR(item.line_total)}
                       </p>
                     </div>
-                    <p className="mt-auto pt-2 text-[11px] text-navy/40">
+                    <p className="mt-auto pt-2 text-[11px] text-ink">
                       {formatINR(item.unit_price)} × {item.quantity}
                     </p>
                   </div>
@@ -254,24 +254,24 @@ export default async function OrderDetailPage({
 
             {order.customer_note && (
               <div className="mt-4 rounded-xl bg-blush p-3">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-navy/40">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink">
                   Your note
                 </p>
-                <p className="mt-1 text-xs leading-relaxed text-navy/60">
+                <p className="mt-1 text-xs leading-relaxed text-navy/70">
                   {order.customer_note}
                 </p>
               </div>
             )}
           </section>
 
-          <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-card">
+          <section className="rounded-2xl border border-line bg-white p-5 shadow-card">
             <h2 className="flex items-center gap-2 text-base font-semibold">
               <MapPin className="h-4 w-4 text-blue" />
               Delivery address
             </h2>
-            <div className="mt-3 text-sm leading-relaxed text-navy/60">
+            <div className="mt-3 text-sm leading-relaxed text-navy/70">
               <p className="font-medium text-navy">{address.name}</p>
-              <p className="mt-0.5 flex items-center gap-1.5 text-xs text-navy/45">
+              <p className="mt-0.5 flex items-center gap-1.5 text-xs text-ink">
                 <Phone className="h-3 w-3" />
                 {address.phone}
               </p>
@@ -291,13 +291,13 @@ export default async function OrderDetailPage({
           </section>
 
           {requests.length > 0 && (
-            <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-card">
+            <section className="rounded-2xl border border-line bg-white p-5 shadow-card">
               <h2 className="text-base font-semibold">Requests</h2>
               <div className="mt-3 space-y-3">
                 {requests.map((request) => (
                   <div
                     key={request.id}
-                    className="rounded-xl border border-navy/5 bg-blush/60 p-3.5"
+                    className="rounded-xl border border-line bg-blush/60 p-3.5"
                   >
                     <div className="flex flex-wrap items-center gap-2">
                       <StatusBadge
@@ -311,7 +311,7 @@ export default async function OrderDetailPage({
                         }
                       />
                       <StatusBadge status={request.status} />
-                      <span className="ml-auto text-[10px] text-navy/35">
+                      <span className="ml-auto text-[10px] text-ink">
                         {formatDate(request.created_at)}
                       </span>
                     </div>
@@ -319,12 +319,12 @@ export default async function OrderDetailPage({
                       {request.reason}
                     </p>
                     {request.description && (
-                      <p className="mt-1 text-xs leading-relaxed text-navy/50">
+                      <p className="mt-1 text-xs leading-relaxed text-ink">
                         {request.description}
                       </p>
                     )}
                     {request.admin_note && (
-                      <p className="mt-2 rounded-lg bg-white px-3 py-2 text-[11px] leading-relaxed text-navy/55">
+                      <p className="mt-2 rounded-lg bg-white px-3 py-2 text-[11px] leading-relaxed text-ink">
                         <span className="font-medium">Our note: </span>
                         {request.admin_note}
                       </p>
@@ -337,18 +337,18 @@ export default async function OrderDetailPage({
         </div>
 
         <aside className="space-y-5">
-          <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-card">
+          <section className="rounded-2xl border border-line bg-white p-5 shadow-card">
             <h2 className="text-base font-semibold">Order summary</h2>
             <div className="mt-3 space-y-2.5 text-sm">
-              <div className="flex justify-between text-navy/55">
+              <div className="flex justify-between text-ink">
                 <span>Subtotal</span>
                 <span>{formatINR(order.subtotal)}</span>
               </div>
-              <div className="flex justify-between text-navy/55">
+              <div className="flex justify-between text-ink">
                 <span>Delivery</span>
-                <span className="text-[11px] text-navy/40">Confirmed on call</span>
+                <span className="text-[11px] text-ink">Confirmed on call</span>
               </div>
-              <div className="flex justify-between border-t border-navy/5 pt-2.5 font-medium">
+              <div className="flex justify-between border-t border-line pt-2.5 font-medium">
                 <span>Total</span>
                 <span>{formatINR(order.total)}</span>
               </div>
@@ -361,33 +361,33 @@ export default async function OrderDetailPage({
                 </div>
               )}
             </div>
-            <p className="mt-3 text-[10px] leading-relaxed text-navy/40">
+            <p className="mt-3 text-[10px] leading-relaxed text-ink">
               The amount above is for the items selected. Our team confirms final
               pricing, including delivery, over a call.
             </p>
           </section>
 
-          <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-card">
+          <section className="rounded-2xl border border-line bg-white p-5 shadow-card">
             <h2 className="text-base font-semibold">Order journey</h2>
             <OrderJourney order={order} />
           </section>
 
           {(order.courier || order.tracking_number || order.tracking_url) && (
-            <section className="rounded-2xl border border-navy/5 bg-white p-5 shadow-card">
+            <section className="rounded-2xl border border-line bg-white p-5 shadow-card">
               <h2 className="flex items-center gap-2 text-base font-semibold">
                 <Truck className="h-4 w-4 text-blue" />
                 Tracking
               </h2>
-              <div className="mt-3 space-y-1.5 text-xs text-navy/55">
+              <div className="mt-3 space-y-1.5 text-xs text-ink">
                 {order.courier && (
                   <p>
-                    <span className="text-navy/35">Courier: </span>
+                    <span className="text-ink">Courier: </span>
                     {order.courier}
                   </p>
                 )}
                 {order.tracking_number && (
                   <p>
-                    <span className="text-navy/35">Number: </span>
+                    <span className="text-ink">Number: </span>
                     {order.tracking_number}
                   </p>
                 )}
@@ -407,7 +407,7 @@ export default async function OrderDetailPage({
           )}
 
           <section className="rounded-2xl bg-blush p-5">
-            <p className="text-xs leading-relaxed text-navy/50">
+            <p className="text-xs leading-relaxed text-ink">
               {order.status === "cancelled"
                 ? "This order is closed. If you have a question about your cancellation or refund, please contact our team."
                 : order.status === "delivered"

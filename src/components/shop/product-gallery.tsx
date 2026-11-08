@@ -17,7 +17,7 @@ export function ProductGallery({
 
   return (
     <div>
-      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] border border-navy/5 bg-gradient-to-br from-pink-soft to-blush">
+      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] border border-line bg-gradient-to-br from-pink-soft to-blush">
         {current ? (
           <Image
             src={current.image_url}
@@ -28,7 +28,7 @@ export function ProductGallery({
             className="object-cover"
           />
         ) : (
-          <div className="grid h-full place-items-center text-pink">
+          <div className="grid h-full place-items-center text-deep-rose">
             <FlowerMark className="h-16 w-16" />
           </div>
         )}

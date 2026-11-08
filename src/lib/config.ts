@@ -1,9 +1,23 @@
+const WHATSAPP_NUMBER = "919159234778";
+const WHATSAPP_MESSAGE =
+  "Hi Subha Fashion Factory! I'm interested in your products. Please share more details.";
+
 export const SITE = {
   name: "Subha Fashion Factory",
   shortName: "Subha",
   tagline: "Handmade & artificial flowers, crafted to last forever.",
   instagram:
-    process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "https://www.instagram.com/",
+    process.env.NEXT_PUBLIC_INSTAGRAM_URL ??
+    "https://www.instagram.com/subha_fashion_factory?psln=YXZwc2xqbWtkdzUy",
+  youtube:
+    process.env.NEXT_PUBLIC_YOUTUBE_URL ??
+    "https://www.youtube.com/@subha_fashion_factory",
+  whatsapp: {
+    number: WHATSAPP_NUMBER,
+    display: "+91 91592 34778",
+    message: WHATSAPP_MESSAGE,
+    url: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
+  },
 };
 
 export const RETURN_WINDOW_DAYS = 7;

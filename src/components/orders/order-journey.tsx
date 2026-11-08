@@ -31,7 +31,7 @@ export function OrderJourney({ order }: { order: Order }) {
                 done && "bg-emerald-500 text-white",
                 current && "bg-blue text-white ring-4 ring-blue/10",
                 cancelled && "bg-rose-500 text-white",
-                upcoming && "border border-navy/15 bg-white"
+                upcoming && "border border-line bg-white"
               )}
             >
               {done && <Check className="h-3 w-3" strokeWidth={3} />}
@@ -48,7 +48,7 @@ export function OrderJourney({ order }: { order: Order }) {
                 {stage.label}
               </p>
               {stage.at ? (
-                <p className="mt-0.5 text-[10px] text-navy/35">
+                <p className="mt-0.5 text-[10px] text-ink">
                   {formatDate(stage.at, true)}
                 </p>
               ) : upcoming ? (
@@ -58,7 +58,7 @@ export function OrderJourney({ order }: { order: Order }) {
                 <p
                   className={cn(
                     "mt-0.5 text-[11px] leading-relaxed",
-                    cancelled ? "text-rose-600" : "text-navy/45"
+                    cancelled ? "text-rose-600" : "text-ink"
                   )}
                 >
                   {stage.note}
