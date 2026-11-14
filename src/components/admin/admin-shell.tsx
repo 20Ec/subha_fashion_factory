@@ -9,6 +9,7 @@ import {
   LogOut,
   Menu,
   Package,
+  Receipt,
   RotateCcw,
   ShoppingBag,
   Tags,
@@ -24,6 +25,7 @@ const nav = [
   { href: "/admin/products", label: "Products", icon: ShoppingBag },
   { href: "/admin/categories", label: "Categories", icon: Tags },
   { href: "/admin/orders", label: "Orders", icon: Package },
+  { href: "/admin/bills", label: "Bills", icon: Receipt },
   { href: "/admin/requests", label: "Requests", icon: RotateCcw },
 ];
 

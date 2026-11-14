@@ -83,6 +83,56 @@ export const productSchema = z.object({
     .min(1, "Add at least one price option"),
 });
 
+export const billItemSchema = z.object({
+  product_name: z
+    .string()
+    .trim()
+    .min(1, "Product name is required")
+    .max(200, "Product name is too long"),
+  inch: z.string().trim().max(40, "Inch value is too long").optional().default(""),
+  pieces: z
+    .string()
+    .trim()
+    .max(40, "Pieces value is too long")
+    .optional()
+    .default(""),
+  size: z.string().trim().max(40, "Size value is too long").optional().default(""),
+  nos: z
+    .number()
+    .min(0, "Nos cannot be negative")
+    .max(9999999, "Nos is too large"),
+  price: z
+    .number()
+    .min(0, "Price cannot be negative")
+    .max(999999999, "Price is too large"),
+});
+
+export const billSchema = z.object({
+  customer_name: z
+    .string()
+    .trim()
+    .min(2, "Customer name is required")
+    .max(120, "Customer name is too long"),
+  bill_date: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, "Enter a valid bill date")
+    .refine((value) => {
+      const date = new Date(`${value}T00:00:00Z`);
+      return (
+        !Number.isNaN(date.getTime()) &&
+        date.toISOString().slice(0, 10) === value
+      );
+    }, "Enter a valid bill date"),
+  shipping: z
+    .number()
+    .min(0, "Shipping charges cannot be negative")
+    .max(999999999, "Shipping charges are too large"),
+  items: z
+    .array(billItemSchema)
+    .min(1, "Add at least one item")
+    .max(100, "A bill can contain at most 100 items"),
+});
+
 export const requestSchema = z.object({
   type: z.enum(["return", "replace", "cancel"]),
   reason: z.string().trim().min(1, "Please select a reason"),

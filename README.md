@@ -32,12 +32,16 @@ The storefront is customer-facing and mobile-first. A single admin dashboard man
 - Product management with unlimited Cloudinary images, category, visibility, featured flag and multi-type pricing options.
 - Order management: status workflow, payment status, confirmed total, courier / tracking details, internal notes and status history.
 - Request management: approve / reject / complete cancellations, returns and replacements.
+- Bill generator: create branded A4 bills with dynamic item rows, automatic subtotal / shipping / final total, and a PDF saved to Supabase Storage.
+- Bill history: search by bill number or customer name, view or re-download old PDFs without creating duplicates.
 - Deleting a product or category also removes its replaced Cloudinary assets.
 
 ### Security
 - Supabase Row Level Security on every table.
 - Prices are always re-read from the database when an order is placed.
 - Orders are created atomically through a Postgres function.
+- Bill headers and every item row are written atomically through `create_bill`; bill numbers come from a sequence.
+- `bills` and `bill_items` are admin-only under RLS, and the private `bills` Storage bucket has admin-only policies.
 - Cloudinary uploads are signed on the server; the API secret never reaches the browser.
 - Only one admin is allowed, enforced by a unique partial index.
 - Customers cannot change their own role (protected by a database trigger).
@@ -116,6 +120,8 @@ Never expose `CLOUDINARY_API_SECRET` or use a service-role Supabase key in the b
 > **Fast path:** add a Supabase personal access token as `SUPABASE_ACCESS_TOKEN` in `.env.local`, then run `npm run db:setup`. It applies `schema.sql` (only when the tables are missing), `import-catalog.sql` and `order-rules.sql` in one step. The manual steps below do exactly the same thing. Remove the token afterwards.
 >
 > **Existing projects:** run `npm run db:migrate` (or paste `supabase/order-rules.sql` into the SQL Editor) to add the cancellation-reason column, order/payment guards and request constraints without touching the catalogue.
+>
+> **Bill generator:** run `npm run db:bills` (or paste `supabase/bills.sql` into the SQL Editor). It adds `bills`, `bill_items`, the atomic `create_bill` / `attach_bill_pdf` functions and the private `bills` Storage bucket.
 
 This creates:
 
@@ -129,6 +135,8 @@ This creates:
 - request rules (one return/replacement per order, required rejection reasons)
 - atomic `place_order`, `cancel_order` and `request_order_action` functions
 - all Row Level Security policies
+
+`supabase/bills.sql` additionally creates the `bills` / `bill_items` tables, the sequence-backed `create_bill` and `attach_bill_pdf` functions, their admin-only RLS policies and the private `bills` Storage bucket.
 
 ### 4.2 Import the catalog (one time)
 The real catalog lives in [`supabase/import-catalog.sql`](supabase/import-catalog.sql). It inserts the 5 categories, all 33 products and every Inch / Pieces / Size price option from the printed price list.
@@ -163,7 +171,7 @@ where email = 'admin@example.com';
 Replace the email with your admin email. Only one admin is allowed — the database will reject a second admin.
 
 ### 4.5 Check the storage of category images
-Category and product images are stored on Cloudinary, not Supabase Storage. No Supabase bucket setup is needed.
+Category and product images are stored on Cloudinary, not Supabase Storage. No bucket setup is needed for images. The bill generator creates and uses a private `bills` bucket when `supabase/bills.sql` (or `npm run db:bills`) runs.
 
 ---
 
@@ -212,6 +220,7 @@ The catalog is already imported from `supabase/import-catalog.sql` — 5 categor
    - move the status through `confirmed → packed → shipped → delivered`
 8. After delivery, test a return or replacement request from the customer order page.
 9. Test admin approval in **Admin → Requests**.
+10. Open **Admin → Bills → New bill**, add a customer and a few items, then save. Confirm the PDF downloads and the bill appears in **Bill history** with working View and Download actions.
 
 To add a new product later, use **Admin → Products → Add product** — the import script is only for the original catalog.
 

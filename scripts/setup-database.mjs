@@ -141,6 +141,10 @@ try {
   await runQuery("order-rules.sql", readSql("supabase/order-rules.sql"));
   console.log("  ✓ Order rules applied");
 
+  console.log("→ Applying bill generator tables (supabase/bills.sql)…");
+  await runQuery("bills.sql", readSql("supabase/bills.sql"));
+  console.log("  ✓ Bill tables and storage bucket ready");
+
   console.log("→ Verifying…");
   const verifyBody = await runQuery(
     "Verification",

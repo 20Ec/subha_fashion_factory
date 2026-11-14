@@ -166,6 +166,34 @@ export type Order = {
   order_requests?: OrderRequest[];
 };
 
+export type BillItem = {
+  id: string;
+  bill_id: string;
+  position: number;
+  product_name: string;
+  inch: string;
+  pieces: string;
+  size: string;
+  nos: number;
+  price: number;
+  total: number;
+};
+
+export type Bill = {
+  id: string;
+  bill_number: string;
+  customer_name: string;
+  bill_date: string;
+  subtotal: number;
+  shipping: number;
+  total: number;
+  pdf_path: string | null;
+  created_by: string | null;
+  created_at: string;
+  updated_at: string;
+  bill_items?: BillItem[];
+};
+
 export type ActionResult = {
   error?: string;
   success?: string;
